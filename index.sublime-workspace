@@ -1,0 +1,518 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"newtot",
+				"newtotalele"
+			],
+			[
+				"temp",
+				"tempnewtotalele_int"
+			],
+			[
+				"newcarr",
+				"newcarry_int"
+			],
+			[
+				"newtotalele",
+				"newtotalele_int"
+			],
+			[
+				"cur_",
+				"cur_row_id"
+			],
+			[
+				"newo",
+				"newtotalele_int"
+			],
+			[
+				"new",
+				"newtotalele"
+			],
+			[
+				"newtotal",
+				"newtotalele"
+			],
+			[
+				"old",
+				"oldtotal_ele"
+			],
+			[
+				"subtot",
+				"subtotal_ele"
+			],
+			[
+				"intermediate",
+				"intermediate_rows"
+			],
+			[
+				"get_v",
+				"get_var_name"
+			],
+			[
+				"NA",
+				"make_NAND_statement"
+			],
+			[
+				"parse",
+				"parse_OR"
+			],
+			[
+				"par",
+				"parse_MAJ"
+			],
+			[
+				"write",
+				"write_XOR_as_NAND"
+			],
+			[
+				"newl",
+				"new_line2"
+			],
+			[
+				"writ",
+				"write_NAND_line"
+			],
+			[
+				"make",
+				"make_NAND_statement"
+			],
+			[
+				"pars",
+				"parse_XOR"
+			],
+			[
+				"pa",
+				"parse_XOR"
+			],
+			[
+				"expr",
+				"expr_tests"
+			],
+			[
+				"Let",
+				"Letrec\tvarid * expr * expr -> expr"
+			],
+			[
+				"eval",
+				"evaluation_tests"
+			],
+			[
+				"test_",
+				"test_exp_to_string\tunit -> unit"
+			],
+			[
+				"exp",
+				"exp_to_string\texpr -> string"
+			],
+			[
+				"string_",
+				"string_of_bool\tbool -> string"
+			],
+			[
+				"fre",
+				"free_vars\texpr -> varidset"
+			],
+			[
+				"exp_to",
+				"exp_to_abstract_string\texpr -> string"
+			],
+			[
+				"ne",
+				"new_exp2\texpr"
+			],
+			[
+				"exp_",
+				"exp_to_abstract_string\texpr -> string"
+			],
+			[
+				"str",
+				"string_of_bool\tbool -> string"
+			],
+			[
+				"fa",
+				"fakeNewsNetwork\tstring -> unit"
+			],
+			[
+				"test",
+				"testpoints"
+			],
+			[
+				"tes",
+				"testpoints"
+			],
+			[
+				"te",
+				"testuniformcentered"
+			],
+			[
+				"graph",
+				"graphdraw"
+			],
+			[
+				"shift",
+				"shift_start\tfloat -> '_a -> '_b"
+			],
+			[
+				"shif",
+				"shift_start\tfloat -> '_a -> '_b"
+			],
+			[
+				"la",
+				"lazy_t\ttype +'a lazy_t"
+			],
+			[
+				"gen",
+				"gen_gt\tC.t -> C.t"
+			],
+			[
+				"g",
+				"gen_gt\tC.t -> C.t"
+			],
+			[
+				"ask",
+				"askshiebs_tests"
+			],
+			[
+				"as",
+				"askshiebs_tests"
+			],
+			[
+				"max",
+				"max_int"
+			],
+			[
+				"from",
+				"fromInt"
+			],
+			[
+				"base",
+				"base_exponent"
+			],
+			[
+				"Inva",
+				"Invalid_Date"
+			],
+			[
+				"mapfo",
+				"mapfold_tests"
+			],
+			[
+				"fold",
+				"fold_left"
+			],
+			[
+				"floa",
+				"float_of_ints"
+			]
+		]
+	},
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 93.0,
+		"last_filter": "Install",
+		"selected_items":
+		[
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 471.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read();",
+			"urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) );",
+			"ipp = sublime.installed_packages_path(); ",
+			"pf = 'Package Control.sublime-package';",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76';",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Ryan/Library/Application Support/Sublime Text 3/Packages/User/SublimeServer.sublime-settings",
+		"/Users/Ryan/Desktop/Repos/VisualizingTheFloor/index.html",
+		"/Users/Ryan/Desktop/Repos/VisualizingTheFloor/js/main.js",
+		"/Users/Ryan/Desktop/shots.json",
+		"/Users/Ryan/Desktop/CS121/hw7/homework7.md",
+		"/Users/Ryan/Desktop/CS121/hw6/homework6.md",
+		"/Users/Ryan/Desktop/CS121/hw7/homework6.md",
+		"/Users/Ryan/Desktop/CS121/hw5/homework5.md",
+		"/Users/Ryan/Desktop/CS121/hw4/homework4.md",
+		"/Users/Ryan/Desktop/CS121/hw4/homework.md",
+		"/Users/Ryan/Desktop/CS121/homework3.md",
+		"/Users/Ryan/Desktop/CS121/product.py",
+		"/Users/Ryan/Desktop/CS121/NANDp2NAND.py",
+		"/Users/Ryan/Desktop/Repos/cs109hw/hw02/NANDp2NAND.py",
+		"/Users/Ryan/Desktop/CS121/homework3.pdf",
+		"/Users/Ryan/Desktop/CS121/inc.nandp",
+		"/Users/Ryan/Desktop/CS121/inc.nand",
+		"/Users/Ryan/Desktop/CS121/homework2.md",
+		"/Users/Ryan/Desktop/CS121/inc_converted.nand",
+		"/Users/Ryan/Desktop/CS121/test_nand.nandp",
+		"/Users/Ryan/Desktop/CS121/test_nand_converted.nand",
+		"/Users/Ryan/Desktop/CS121/test_maj_converted.nand",
+		"/Users/Ryan/Desktop/CS121/test_xor_converted.nand",
+		"/Users/Ryan/Desktop/CS121/test_xor.nandp",
+		"/Users/Ryan/Desktop/CS121/homework1.md",
+		"/Users/Ryan/Desktop/CS121/homework0.md",
+		"/Users/Ryan/Desktop/CS 121/homework0.md",
+		"/Users/Ryan/Desktop/CS 121/homework0.pdf",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/evaluation_tests.ml",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/evaluation.ml",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/evaluation_tests",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/expr.ml",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/writeup.md",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/expr_tests.ml",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/expr_tests",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/miniml.ml",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/miniml_parse.mly",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/miniml_lex.mll",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/miniml_lex.mli",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/makefile",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/graphobj.ml",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/miniml",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/evaluation",
+		"/Users/Ryan/Desktop/CS51/project-rplunkett97/expr.mli",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/makefile",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/testgraphs.ml",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/testmasses.ml",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/testpoints.ml",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/masses.ml",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/points.ml",
+		"/Users/Ryan/Desktop/CS51/lab8-rplunkett97/lab8.ml",
+		"/Users/Ryan/Desktop/CS51/lab8/lab8.ml",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/testmasses",
+		"/Users/Ryan/Desktop/CS51/lab7-rplunkett97/lab7.ml",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/points.mli",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/masses.mli",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/graphdraw.ml",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/testuniformcentered.ml",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/points",
+		"/Users/Ryan/points.ml",
+		"/Users/Ryan/Desktop/CS51/ps7-rplunkett97/cs51.ml",
+		"/Users/Ryan/Desktop/CS51/ps6-rplunkett2/makefile",
+		"/Users/Ryan/Desktop/CS51/ps6-rplunkett2/refs.ml",
+		"/Users/Ryan/Desktop/CS51/ps6-rplunkett2/streamstrees.ml",
+		"/Users/Ryan/Desktop/CS51/ps6-rplunkett2/music.ml",
+		"/Users/Ryan/Desktop/CS51/ps6-rplunkett2/nativeLazyStreams.ml",
+		"/Users/Ryan/Desktop/CS51/lab6-rplunkett97/lab6.ml",
+		"/Users/Ryan/Desktop/CS51/ps4-ryan/prioqueue.ml",
+		"/Users/Ryan/Desktop/CS51/ps4-rplunkett97",
+		"/Users/Ryan/Desktop/CS51/ps6-rplunkett2/refs_test.ml",
+		"/Users/Ryan/Desktop/CS51/ps2-rplunkett97/makefile",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/performance.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/analysis.txt",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/myset.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/askshiebs.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/webtypes.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/crawl.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/askshiebs_tests.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/query.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/cs51.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/crawler_services.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/makefile",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/askshiebs.html",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/performance_dict.ml",
+		"/Users/Ryan/crawl.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/performance_dict",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/dict.ml",
+		"/Users/Ryan/Desktop/CS51/ps5/dict.ml",
+		"/Users/Ryan/Desktop/CS51/ps5/makefile",
+		"/Users/Ryan/Desktop/CS51/makefile",
+		"/Users/Ryan/Desktop/CS51/ps5/myset.ml",
+		"/Users/Ryan/Desktop/CS51/ps5/crawl.ml",
+		"/Users/Ryan/Desktop/CS51/ps5/askshiebs.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett/askshiebs",
+		"/Users/Ryan/Desktop/CS51/ps5/askshiebs_tests.ml",
+		"/Users/Ryan/Desktop/CS51/lab5-rplunkett97/lab5.ml",
+		"/Users/Ryan/Desktop/CS51/ps5-rplunkett97",
+		"/Users/Ryan/Desktop/CS51/lab5-rplunkett97/makefile",
+		"/Users/Ryan/Desktop/CS51/lab5/lab5.ml",
+		"/Users/Ryan/Desktop/CS51/ps5/webtypes.ml",
+		"/Users/Ryan/Desktop/CS51/ps5/order.ml",
+		"/Users/Ryan/Desktop/CS51/ps5/crawler_services.mli",
+		"/Users/Ryan/Desktop/CS51/ps5/crawler_services.ml",
+		"/Users/Ryan/Desktop/CS51/ps1-rplunkett97/makefile",
+		"/Users/Ryan/Desktop/CS51/ps5/crawler-services.ml",
+		"/Users/Ryan/Desktop/CS51/ps5/cs51.ml",
+		"/Users/Ryan/Desktop/CS51/ps5/query.ml",
+		"/Users/Ryan/Desktop/CS51/ps4-ryan/orderedcoll.ml",
+		"/Users/Ryan/Desktop/CS51/ps4-ryan/order.ml",
+		"/Users/Ryan/Desktop/CS51/ps4-ryan/tests.ml",
+		"/Users/Ryan/Desktop/CS51/ps1-rplunkett97/ps1.ml",
+		"/Users/Ryan/Desktop/CS51/ps4-ryan/prioqueue",
+		"/Users/Ryan/Desktop/CS51/ps3-rplunkett97/makefile",
+		"/Users/Ryan/Desktop/CS51/ps4-ryan/makefile",
+		"/Users/Ryan/Desktop/CS51/ps3-rplunkett97/ps3.ml",
+		"/Users/Ryan/Desktop/CS51/ps3-rplunkett97/Bignum_module.ml",
+		"/Users/Ryan/Desktop/CS51/ps3-rplunkett97/Ps3_module",
+		"/Users/Ryan/Desktop/CS51/lab4-rplunkett97/sam.ml",
+		"/Users/Ryan/Desktop/CS51/lab4-rplunkett97/gabbi.ml",
+		"/Users/Ryan/Desktop/CS51/lab4-rplunkett97/lab4_part1.ml",
+		"/Users/Ryan/Desktop/CS51/lab4-rplunkett97/lab4_part2.ml",
+		"/Users/Ryan/Desktop/CS51/lab4-rplunkett97/lab4_part3.ml",
+		"/Users/Ryan/Desktop/CS51/lab4-rplunkett97/lab4_part5.ml",
+		"/Users/Ryan/Desktop/CS51/lab4-rplunkett97/lab4_part4.ml",
+		"/Users/Ryan/Desktop/CS51/ps3-rplunkett97/ps3_tests.ml",
+		"/Users/Ryan/Desktop/CS51/lab2-rplunkett97/lab2.ml",
+		"/Users/Ryan/Desktop/CS51/ps2-rplunkett97/mapfold.ml",
+		"/Users/Ryan/Desktop/CS51/lab3-rplunkett97/code_review_3.ml"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"xe",
+			"xe4",
+			"subtotal",
+			"$",
+			"NAND",
+			"failwith",
+			"node",
+			"pos#y",
+			"pos#x",
+			"y0",
+			"x0",
+			"filter",
+			"zip"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"$NAND$"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.merlin":
+	{
+		"height": 156.0
+	},
+	"pinned_build_system": "",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

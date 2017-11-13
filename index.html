@@ -13,6 +13,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Barlow:400,400i,700|Neuton" rel="stylesheet">
 
+  <link rel="stylesheet" href="css/nouislider.min.css">
+
   <!-- Custom CSS code -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -38,17 +40,19 @@
       </div>
     </section>
 
-    <section id="intro">
+    <section id="shot-distance">
       <div class="row">
         <div class="col-md-5">
           <h1>Defender Distance</h1>
 
-          <p>The Warriors' ball movement was (and continues to be) awe-inspiring, and it resulted in some of the league's best shooters getting more open shots than most other teams. But does it matter how open a player is when shooting? Let's take a look.</p>
+          <p>The Warriors' ball movement was (and continues to be) awe-inspiring, and it resulted in some of the league's best shooters getting more open shots than most other teams. But does it matter how open a player is when he's shooting? Let's take a look.</p>
 
         </div>
 
         <div class="col-md-7">
           <div id="shot-distance-chart"></div>
+          <div id="def-dist-slider"></div>
+
         </div>
       </div>
     </section>
@@ -61,6 +65,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   <script src="js/queue.min.js"></script>
   <script src="js/d3.js"></script>
+  <script src="js/nouislider.min.js"></script>
 
   <!-- Load data, create visualizations -->
   <!-- <script src="js/main.js"></script> -->

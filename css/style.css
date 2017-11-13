@@ -54,3 +54,12 @@ section {
   font-size: 1rem;
   text-align: center;
 }
+
+/* Defender Distance Section */
+#def-dist-slider .noUi-connect {
+  background: #003DA5;
+}
+
+#def-dist-slider .noUi-tooltip {
+  bottom: -170%;
+}

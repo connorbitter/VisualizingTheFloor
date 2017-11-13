@@ -1,0 +1,50 @@
+/* 
+    === Color Palette ===
+    GSW Blue:     #003DA5
+    GSW Yellow:   #FFC72D
+    Black:        #141115
+    White:        #F4F4F4
+    Fuschia:      #DEC5E3
+*/
+
+
+/* Global */
+body {
+  background-color: #F4F4F4;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  color: #141115;
+  letter-spacing: 0.1rem;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Neuton', serif;
+}
+
+section {
+  margin: 4rem 0;
+}
+
+/* Top */
+#top-container {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background-color: #141115;
+}
+
+#top-container h1 {
+  text-align: center;
+  color: #F4F4F4;
+  font-size: 4rem;
+}
+
+#top-container h2 {
+  color: #F4F4F4;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+}

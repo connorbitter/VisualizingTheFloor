@@ -14,11 +14,12 @@ body {
   font-family: 'Barlow', sans-serif;
   font-weight: 400;
   color: #141115;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.075rem;
 }
 
 h1, h2, h3, h4, h5 {
   font-family: 'Neuton', serif;
+  letter-spacing: 0.125rem;
 }
 
 section {
@@ -34,6 +35,11 @@ section {
   justify-content: center;
   align-content: center;
   background-color: #141115;
+
+  /* http://www.sandiegouniontribune.com/sports/sdut-virtual-reality-golden-state-warriors-kenny-lauer-2015may21-story.html*/
+  background-image: url('../images/gsw-1.jpg');
+  background-size: cover;
+  background-position: top center;
 }
 
 #top-container h1 {

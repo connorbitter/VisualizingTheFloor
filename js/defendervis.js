@@ -5,10 +5,12 @@
  * @param _data						-- the actual data
  */
 
-DefenderVis = function(_parentElement, _data){
+DefenderVis = function(_parentElement, _data, _points){
 	this.parentElement = _parentElement;
-	this.data = _data;
-	this.filteredData = this.data;
+	this.data          = _data;
+  this.points        = _points;
+
+	this.filteredData  = this.data;
 
 	this.initVis();
 }
@@ -64,6 +66,14 @@ DefenderVis.prototype.initVis = function(){
     .attr("transform", "translate("+ (vis.width / 2) + "," + (vis.height - (vis.margin.bottom / 4)) + ")")
     .text("Defender Distance (ft)");
 
+  // Title
+  vis.svg.append("text")
+        .attr("x", (vis.width / 2))             
+        .attr("y", 0 - (vis.margin.top / 10))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "22px") 
+        .text(vis.points + "-point Shots");
+
 	// Line
 	vis.line = d3.line();
 	vis.svg.append("path")
@@ -76,8 +86,10 @@ DefenderVis.prototype.initVis = function(){
 DefenderVis.prototype.initData = function(){
 	var vis = this;
 
+  console.log(vis.points);
+
 	vis.filteredData = vis.filteredData.filter(function(element) {
-		return element.PTS_TYPE == 3;
+		return element.PTS_TYPE == vis.points;
 	});
 
 	// Store shot percentages by distance (min. 10 shots)
@@ -114,15 +126,20 @@ DefenderVis.prototype.initData = function(){
 	vis.slider = document.getElementById("def-dist-slider");
 
 	// Create slider based on data
-	noUiSlider.create(vis.slider, {
-		start: vis.extent,
-		step: 0.1,
-		connect: true,
-		tooltips: true,
-		range: {
-			'min': vis.extent[0],
-			'max': vis.extent[1]
-		}});
+
+  if (!slider_created) {
+    noUiSlider.create(vis.slider, {
+    start: vis.extent,
+    step: 0.1,
+    connect: true,
+    tooltips: true,
+    range: {
+      'min': vis.extent[0],
+      'max': vis.extent[1]
+    }});
+
+    slider_created = true
+  }
 
 	vis.slider.noUiSlider.on('update', function(values, handle) {
 		vis.onSelectionChange();
@@ -160,12 +177,12 @@ DefenderVis.prototype.updateVis = function(){
   vis.xAxis.scale(vis.x);
   vis.yAxis.scale(vis.y).tickFormat(function(d){return (d * 100) + "%"});
 
-  d3.select(".x-axis")
+  d3.select("#" + vis.parentElement + " .x-axis")
     .transition()
     .duration(800)
     .call(vis.xAxis)
 
-  d3.select(".y-axis")
+  d3.select("#" + vis.parentElement + " .y-axis")
     .transition()
     .duration(800)
     .call(vis.yAxis)
@@ -182,7 +199,7 @@ DefenderVis.prototype.updateVis = function(){
       }
     });
 
-  d3.select(".line")
+  d3.select("#" + vis.parentElement + " .line")
     .attr("d", vis.line(Object.keys(vis.displayData)))
     .attr("class", "line")
     .attr("stroke", "#003DA5")

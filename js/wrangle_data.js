@@ -64,10 +64,6 @@ function createVis(error, shot_locations, defender_stats){
     d.SECONDS_REMAINING = +d.GAME_CLOCK.split(":")[1];
   });
 
-  // Log everything
-  console.log(shots);
-  console.log(defender_stats);
-
   // Initialize counter to track progress and array to store data
   var ctr = 0;
   var mergedData = [];
@@ -82,19 +78,11 @@ function createVis(error, shot_locations, defender_stats){
     });
     if (filtered.length == 1) {
       ctr += 1;
-      console.log(ctr);
       mergedData.push($.extend(filtered[0], shots[i]));
     };
   };
 
-  // console.log(mergedData);
-
-  // Create link to download JSON
-  // var dataString = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(mergedData));
-  // console.log(JSON.stringify(mergedData));
-  // $("<a href='" + dataString + "' download='data.json'>download JSON</a>").appendTo("#download-container");
-
-  var dbx = new Dropbox({ accessToken: '5ELyqCYdMsgAAAAAAAARXvThZCMeswz0opKTjg2eQ2U9w-3tjtcEcH2tBDQu7vpq' });
+  var dbx = new Dropbox({ accessToken: 'ACCESS TOKEN HERE' });
   dbx.filesUpload({path: '/data.json', contents: JSON.stringify(mergedData)})
     .then(function(response) {
       console.log(response);

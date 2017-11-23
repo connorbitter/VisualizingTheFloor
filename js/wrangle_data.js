@@ -86,10 +86,20 @@ function createVis(error, shot_locations, defender_stats){
       mergedData.push($.extend(filtered[0], shots[i]));
     };
   };
+
   // console.log(mergedData);
 
   // Create link to download JSON
   // var dataString = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(mergedData));
-  console.log(JSON.stringify(mergedData));
+  // console.log(JSON.stringify(mergedData));
   // $("<a href='" + dataString + "' download='data.json'>download JSON</a>").appendTo("#download-container");
+
+  var dbx = new Dropbox({ accessToken: '5ELyqCYdMsgAAAAAAAARXvThZCMeswz0opKTjg2eQ2U9w-3tjtcEcH2tBDQu7vpq' });
+  dbx.filesUpload({path: '/data.json', contents: JSON.stringify(mergedData)})
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.error(error);
+    });
 }

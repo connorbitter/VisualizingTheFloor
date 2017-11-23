@@ -1,10 +1,11 @@
 // Load data asynchronously
 queue()
-  .defer(d3.json,"data/data_sample.json")
+  .defer(d3.json,"data/data_full.json")
   .await(createVis);
 
 // Static Components
 function createVis(error, data) {
+	console.log(data);
 
   // store data in global variable
   allData = data;

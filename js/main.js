@@ -1,6 +1,6 @@
 // Load data asynchronously
 queue()
-  .defer(d3.json,"data/data_full.json")
+  .defer(d3.json,"data/data_cleaned.json")
   .await(createVis);
 
 // Static Components

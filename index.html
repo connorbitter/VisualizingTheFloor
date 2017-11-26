@@ -58,7 +58,7 @@
           <div class="row">
             <div class="col-lg-6">
               <select id="player-dropdown">
-                <option value="Stephen Curry" selected="selected">Stephen Curry</option>
+                <option value="Stephen Curry" disabled="disabled" selected="selected">Stephen Curry</option>
               </select>
               <div class="vis" id="shot-chart-court"></div>
             </div>
@@ -66,7 +66,6 @@
         </div>
       </div>
     </section>
-
     <section id="shot-distance">
       <div class="row">
         <div class="col-md-12">
@@ -105,6 +104,11 @@
           <p>Integer eleifend enim ante, at varius nulla luctus eget. In semper augue non aliquet condimentum. Fusce ultricies nisi non arcu dapibus suscipit. In blandit risus sed ante fringilla efficitur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi risus tellus, facilisis et nisl non, varius commodo libero. Curabitur a vehicula nulla, ut accumsan risus. Suspendisse potenti.</p>
         </div>
       </div>
+      <div class="row">
+            <div class="col-lg-6">
+              <div class="vis" id="open-shot"></div>
+            </div>
+      </div>
     </section>
   </div>
 
@@ -121,6 +125,7 @@
   <script src="js/main.js"></script>
   <script src="js/defendervis.js"></script>
   <script src="js/shotchartvis.js"></script>
+  <script src="js/openshotvis.js"></script>
 
 </body>
 </html>

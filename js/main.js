@@ -15,6 +15,8 @@ function createVis(error, data) {
   var defenderVis_Threes = new DefenderVis("shot-distance-chart-1", data, 3);
   var defenderVis = new DefenderVis("shot-distance-chart-2", data, 2);
 
-  var shotChart = new ShotChartVis("shot-chart-court", data);
+  var shotChartVis = new ShotChartVis("shot-chart-court", data);
+
+  var openShotVis = new OpenShotVis("open-shot", data);
 
 }

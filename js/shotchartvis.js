@@ -122,8 +122,6 @@ ShotChartVis = function(_parentElement, _data){
     // Get current player selection
     vis.selection = vis.dropdown.property("value");
 
-    console.log(vis.selection);
-
     // Filter by current player
     vis.filteredData = vis.data.filter(function(element){
       return element.PLAYER_NAME == vis.selection;
@@ -145,9 +143,10 @@ ShotChartVis = function(_parentElement, _data){
       .data(vis.displayData);
     circle.enter()
       .append("circle")
+      .attr("class", "circle")
+      .merge(circle)
       .attr("r", 3)
-      .attr("cx", function(d){
-        return vis.x(d.LOC_X) })
+      .attr("cx", function(d){ return vis.x(d.LOC_X) })
       .attr("cy", function(d){ return vis.y(d.LOC_Y) })
       .attr("fill", function(d){
         if (d.FGM) { return "green" }

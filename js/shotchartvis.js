@@ -106,6 +106,11 @@ ShotChartVis = function(_parentElement, _data){
       sel.appendChild(opt);
   }
 
+  vis.dropdown = d3.select("#player-dropdown");
+  vis.dropdown.on("change", function() {
+    vis.wrangleData();
+  });
+
   // Call next function
   vis.wrangleData();
 
@@ -115,13 +120,12 @@ ShotChartVis = function(_parentElement, _data){
     var vis = this;
 
     // Get current player selection
-    vis.dropdown = d3.select("#player-dropdown");
     vis.selection = vis.dropdown.property("value");
 
     console.log(vis.selection);
 
     // Filter by current player
-    vis.filteredData = vis.filteredData.filter(function(element){
+    vis.filteredData = vis.data.filter(function(element){
       return element.PLAYER_NAME == vis.selection;
     });
 
@@ -150,7 +154,4 @@ ShotChartVis = function(_parentElement, _data){
         else { return "red" }
       });
       circle.exit().remove();
-
-    // Wrangle again if selection changes
-    //vis.dropdown.on("change", vis.wrangleData());
  }

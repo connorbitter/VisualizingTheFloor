@@ -120,7 +120,7 @@ ShotChartVis = function(_parentElement, _data){
   }
 
 
-  vis.teamDropdown.on("change", function() {
+  $("#team-dropdown").change(function() {
 
     // Change the players in the dropdown based on team selected
     var sel = document.getElementById('player-dropdown');
@@ -141,7 +141,7 @@ ShotChartVis = function(_parentElement, _data){
     vis.wrangleData();
   });
 
-  vis.playerDropdown.on("change", function() {
+  $("#player-dropdown").change(function() {
     vis.wrangleData();
   });
 
@@ -198,7 +198,7 @@ ShotChartVis = function(_parentElement, _data){
         else {
           return vis.playerSelection
         }
-        
+
       });
 
     vis.x.domain(vis.x_extent);
@@ -211,6 +211,7 @@ ShotChartVis = function(_parentElement, _data){
       .append("circle")
       .attr("class", "circle")
       .merge(circle)
+      .transition(2000)
       .attr("r", 2)
       .attr("cx", function(d){ return vis.x(d.LOC_X) })
       .attr("cy", function(d){ return vis.y(d.LOC_Y + 20) })

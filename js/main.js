@@ -25,4 +25,6 @@ function createVis(error, data, colors) {
 
   var openShotVis = new OpenShotVis("open-shot", data);
 
+  var barChartVis = new BarChartVis("bar-chart-percentages", data);
+
 }

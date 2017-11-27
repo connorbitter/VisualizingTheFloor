@@ -68,10 +68,10 @@ DefenderVis.prototype.initVis = function(){
 
   // Title
   vis.svg.append("text")
-        .attr("x", (vis.width / 2))             
+        .attr("x", (vis.width / 2))
         .attr("y", 0 - (vis.margin.top / 10))
-        .attr("text-anchor", "middle")  
-        .style("font-size", "22px") 
+        .attr("text-anchor", "middle")
+        .style("font-size", "22px")
         .text(vis.points + "-point Shots");
 
 	// Line
@@ -112,7 +112,7 @@ DefenderVis.prototype.initData = function(){
 			}
 		}
 
-		if (shots_total >= 10) 
+		if (shots_total >= 10)
 			vis.percentages[i_r.toFixed(1)] = (shots_made / shots_total);
 	}
 
@@ -122,7 +122,7 @@ DefenderVis.prototype.initData = function(){
 		return +d;
 	});
 
-	// Slider 
+	// Slider
 	vis.slider = document.getElementById("def-dist-slider");
 
 	// Create slider based on data
@@ -190,10 +190,10 @@ DefenderVis.prototype.updateVis = function(){
   // Update Line
   vis.line
     .x(function(d) { return vis.x(d); })
-    .y(function(d) { 
+    .y(function(d) {
       if (isNaN(vis.displayData[d])) {
         return vis.y(0);
-      } 
+      }
       else {
         return vis.y(vis.displayData[d]);
       }

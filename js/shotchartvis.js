@@ -55,25 +55,6 @@ ShotChartVis = function(_parentElement, _data){
   vis.svg.append("g")
     .attr("class", "axis y-axis");
 
-  // // Label Axes
-  // vis.svg.append("text")
-  //   .attr("text-anchor", "middle")
-  //   .attr("transform", "translate("+ (-vis.margin.left / 1.5) + "," + (vis.height / 2) + ")rotate(-90)")
-  //   .text("Y Location");
-
-  // vis.svg.append("text")
-  //   .attr("text-anchor", "middle")
-  //   .attr("transform", "translate("+ (vis.width / 2) + "," + vis.height + ")")
-  //   .text("X Location");
-
-  // // Title
-  // vis.svg.append("text")
-  //       .attr("x", (vis.width / 2))
-  //       .attr("y", 0 - (vis.margin.top / 10))
-  //       .attr("text-anchor", "middle")
-  //       .style("font-size", "22px")
-  //       .text("Shot Chart");
-
   // Get list of all players that recorded a shot
   var unique = {};
   var players = [];

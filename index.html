@@ -25,7 +25,7 @@
     <h2>Exploring the Golden State Warriors' record-breaking 2014-2015 season and how it changed the game.</h2>
   </div>
 
-  <div class="container">
+<!--   <div class="container-fluid"> -->
 
 <!--     <nav class="navbar sticky-top navbar-light bg-faded">
       <a class="navbar-brand" href="#">Sticky top</a>
@@ -33,34 +33,41 @@
 
     <!--  INTRODUCTION  -->
     <section id="intro">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Introduction</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Introduction</h1>
 
-          <p>On October 28, 2014, ESPN released its 2014-2015 preseason NBA predictions, with 28 analysts submitting their pick for the team most likely to bring home the Larry O'Brien trophy in June.  The favorite, earning 50% of the votes?  The Cleveland Cavaliers, led by LeBron James in his first season since returning home.  The Cavs did the reach the Finals but would not prevail, falling in 5 games in the Golden State Warriors.  Despite receiving only a single pre-season vote from ESPN's panel, the Warriors revolutionized the NBA in 2014-2015, capturing the franchise's first championship and laying the groundwork for the most dominant 3-year regular season stretch in NBA history.  After years of toiling in obscurity and languishing in the Bay, these Warriors took the league by storm.  Who were they, and how did they do it?</p>
+            <p>On October 28, 2014, ESPN released its 2014-2015 preseason NBA predictions, with 28 analysts submitting their pick for the team most likely to bring home the Larry O'Brien trophy in June.  The favorite, earning 50% of the votes?  The Cleveland Cavaliers, led by LeBron James in his first season since returning home.  The Cavs did the reach the Finals but would not prevail, falling in 5 games in the Golden State Warriors.  Despite receiving only a single pre-season vote from ESPN's panel, the Warriors revolutionized the NBA in 2014-2015, capturing the franchise's first championship and laying the groundwork for the most dominant 3-year regular season stretch in NBA history.  After years of toiling in obscurity and languishing in the Bay, these Warriors took the league by storm.  Who were they, and how did they do it?</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!--  SHOT CHART  -->
     <section id="shot-chart">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Interactive Shot Chart</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Interactive Shot Chart</h1>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida, erat non laoreet tincidunt, purus nulla sollicitudin tortor, id porttitor leo elit et erat. Maecenas facilisis eget justo eget convallis. Nunc imperdiet, lectus condimentum consectetur rhoncus, nulla mauris mattis sem, eget eleifend metus enim non enim. Integer porta lorem magna, eget mollis mauris luctus eu. Quisque sodales sodales elit, vel porta justo lobortis eget. Nullam varius quis nisi in feugiat. Cras in enim neque. Cras at auctor metus. Phasellus tincidunt ligula eget justo porttitor, semper tempor lectus rutrum. Proin vel metus aliquet, volutpat nisl vitae, rhoncus nibh.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida, erat non laoreet tincidunt, purus nulla sollicitudin tortor, id porttitor leo elit et erat. Maecenas facilisis eget justo eget convallis. Nunc imperdiet, lectus condimentum consectetur rhoncus, nulla mauris mattis sem, eget eleifend metus enim non enim. Integer porta lorem magna, eget mollis mauris luctus eu. Quisque sodales sodales elit, vel porta justo lobortis eget. Nullam varius quis nisi in feugiat. Cras in enim neque. Cras at auctor metus. Phasellus tincidunt ligula eget justo porttitor, semper tempor lectus rutrum. Proin vel metus aliquet, volutpat nisl vitae, rhoncus nibh.</p>
 
-          <p>Integer eleifend enim ante, at varius nulla luctus eget. In semper augue non aliquet condimentum. Fusce ultricies nisi non arcu dapibus suscipit. In blandit risus sed ante fringilla efficitur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi risus tellus, facilisis et nisl non, varius commodo libero. Curabitur a vehicula nulla, ut accumsan risus. Suspendisse potenti.</p>
+            <p>Integer eleifend enim ante, at varius nulla luctus eget. In semper augue non aliquet condimentum. Fusce ultricies nisi non arcu dapibus suscipit. In blandit risus sed ante fringilla efficitur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi risus tellus, facilisis et nisl non, varius commodo libero. Curabitur a vehicula nulla, ut accumsan risus. Suspendisse potenti.</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row">
-            <div class="col-lg-4">
-              <select id="player-dropdown">
-                <option value="Stephen Curry" selected="selected">Stephen Curry</option>
-              </select>
-              <div class="vis" id="shot-chart-court"></div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-lg-4">
+                <select id="team-dropdown">
+                  <option value="Golden State Warriors" selected="selected">Golden State Warriors</option>
+                </select>
+                <select id="player-dropdown">
+                  <option value="All" selected="selected">All</option>
+                </select>
+                <div class="vis" id="shot-chart-court"></div>
+              </div>
             </div>
             <div class="col-lg-8">
               <div class="vis" id="bar-chart-percentages"></div>
@@ -71,49 +78,53 @@
     </section>
 
     <section id="shot-distance">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Defender Distance</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Defender Distance</h1>
 
-          <p>The Warriors' ball movement was (and continues to be) awe-inspiring, and it resulted in some of the league's best shooters getting more open shots than most other teams. But does it matter how open a player is when he's shooting? Let's take a look.</p>
+            <p>The Warriors' ball movement was (and continues to be) awe-inspiring, and it resulted in some of the league's best shooters getting more open shots than most other teams. But does it matter how open a player is when he's shooting? Let's take a look.</p>
 
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="vis" id="shot-distance-chart-1"></div>
-            </div>
-            <div class="col-lg-6">
-              <div class="vis" id="shot-distance-chart-2"></div>
-            </div>
           </div>
-          <div class="col-lg-6 offset-lg-3">
-            <div id="def-dist-slider"></div>
-            <p class="text-center">Displayed Defender Distances</p>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="vis" id="shot-distance-chart-1"></div>
+              </div>
+              <div class="col-lg-6">
+                <div class="vis" id="shot-distance-chart-2"></div>
+              </div>
+            </div>
+            <div class="col-lg-6 offset-lg-3">
+              <div id="def-dist-slider"></div>
+              <p class="text-center">Displayed Defender Distances</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section id="touch-time">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Catch and Shoot?</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Catch and Shoot?</h1>
 
-          <p>Ball movement creates open looks, and open looks means more catch and shoot (and less isolation). Is this more efficient? Let's look.</p>
+            <p>Ball movement creates open looks, and open looks means more catch and shoot (and less isolation). Is this more efficient? Let's look.</p>
 
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="vis" id="touch-time-chart-1"></div>
-            </div>
-            <div class="col-lg-6">
-              <div class="vis" id="touch-time-chart-2"></div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="vis" id="touch-time-chart-1"></div>
+              </div>
+              <div class="col-lg-6">
+                <div class="vis" id="touch-time-chart-2"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -121,22 +132,24 @@
     </section>
 
     <section id="shot-clock">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Shot Clock?</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Shot Clock?</h1>
 
-<!--           <p>Ball movement creates open looks, and open looks means more catch and shoot (and less isolation). Is this more efficient? Let's look.</p> -->
+  <!--           <p>Ball movement creates open looks, and open looks means more catch and shoot (and less isolation). Is this more efficient? Let's look.</p> -->
 
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="vis" id="shot-clock-chart-1"></div>
-            </div>
-            <div class="col-lg-6">
-              <div class="vis" id="shot-clock-chart-2"></div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="vis" id="shot-clock-chart-1"></div>
+              </div>
+              <div class="col-lg-6">
+                <div class="vis" id="shot-clock-chart-2"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -145,19 +158,21 @@
 
     <!--  TEAM AVG DEFENDER DISTANCE VS WINNING PERCENTAGE  -->
     <section id="win-percentage">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Defender Distance and Winning</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Defender Distance and Winning</h1>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida, erat non laoreet tincidunt, purus nulla sollicitudin tortor, id porttitor leo elit et erat. Maecenas facilisis eget justo eget convallis. Nunc imperdiet, lectus condimentum consectetur rhoncus, nulla mauris mattis sem, eget eleifend metus enim non enim. Integer porta lorem magna, eget mollis mauris luctus eu. Quisque sodales sodales elit, vel porta justo lobortis eget. Nullam varius quis nisi in feugiat. Cras in enim neque. Cras at auctor metus. Phasellus tincidunt ligula eget justo porttitor, semper tempor lectus rutrum. Proin vel metus aliquet, volutpat nisl vitae, rhoncus nibh.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida, erat non laoreet tincidunt, purus nulla sollicitudin tortor, id porttitor leo elit et erat. Maecenas facilisis eget justo eget convallis. Nunc imperdiet, lectus condimentum consectetur rhoncus, nulla mauris mattis sem, eget eleifend metus enim non enim. Integer porta lorem magna, eget mollis mauris luctus eu. Quisque sodales sodales elit, vel porta justo lobortis eget. Nullam varius quis nisi in feugiat. Cras in enim neque. Cras at auctor metus. Phasellus tincidunt ligula eget justo porttitor, semper tempor lectus rutrum. Proin vel metus aliquet, volutpat nisl vitae, rhoncus nibh.</p>
 
-          <p>Integer eleifend enim ante, at varius nulla luctus eget. In semper augue non aliquet condimentum. Fusce ultricies nisi non arcu dapibus suscipit. In blandit risus sed ante fringilla efficitur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi risus tellus, facilisis et nisl non, varius commodo libero. Curabitur a vehicula nulla, ut accumsan risus. Suspendisse potenti.</p>
+            <p>Integer eleifend enim ante, at varius nulla luctus eget. In semper augue non aliquet condimentum. Fusce ultricies nisi non arcu dapibus suscipit. In blandit risus sed ante fringilla efficitur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi risus tellus, facilisis et nisl non, varius commodo libero. Curabitur a vehicula nulla, ut accumsan risus. Suspendisse potenti.</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-            <div class="col-lg-6">
-              <div class="vis" id="open-shot"></div>
-            </div>
+        <div class="row">
+              <div class="col-lg-6">
+                <div class="vis" id="open-shot"></div>
+              </div>
+        </div>
       </div>
     </section>
   </div>

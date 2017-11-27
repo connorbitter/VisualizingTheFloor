@@ -161,8 +161,6 @@ LineChartVis.prototype.wrangleData = function(){
 
 	vis.displayData = vis.data;
 
-  console.log(vis.displayData)
-
 	// Update the visualization
 	vis.updateVis();
 }

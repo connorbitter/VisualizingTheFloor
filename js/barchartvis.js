@@ -84,6 +84,11 @@ vis.svg.append("text")
     vis.wrangleData();
   });
 
+  vis.team_dropdown = d3.select("#team-dropdown");
+  vis.team_dropdown.on("change", function() {
+    vis.wrangleData();
+  });
+
   // Call next function
   vis.wrangleData();
 
@@ -107,7 +112,12 @@ BarChartVis.prototype.wrangleData = function(){
   vis.filteredData.forEach(function(d){
     makes += d.FGM;
   })
-  var fg_pct = 100 * (makes / vis.filteredData.length);
+  if (vis.filteredData.length == 0){
+    var fg_pct = 0;
+  }
+  else {
+    var fg_pct = 100 * (makes / vis.filteredData.length);
+  }
 
   // Calculate player's 2-pt FG%
   var twos = 0
@@ -116,7 +126,7 @@ BarChartVis.prototype.wrangleData = function(){
     twos += d.FGM;
   })
   if (vis.filteredData_2.length == 0){
-    var two_pct = 0
+    var two_pct = 0;
   }
   else {
     var two_pct = 100 * (twos / vis.filteredData_2.length);

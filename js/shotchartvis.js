@@ -21,10 +21,10 @@ ShotChartVis = function(_parentElement, _data){
  ShotChartVis.prototype.initVis = function(){
   var vis = this;
 
-  vis.margin = {top: 20, right: 20, bottom: 40, left: 80};
+  vis.margin = {top: 20, right: 20, bottom: 40, left: 20};
 
   vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-    vis.height = 300 - vis.margin.top - vis.margin.bottom;
+  vis.height = 300 - vis.margin.top - vis.margin.bottom;
 
   // SVG drawing area
   vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -55,24 +55,24 @@ ShotChartVis = function(_parentElement, _data){
   vis.svg.append("g")
     .attr("class", "axis y-axis");
 
-  // Label Axes
-  vis.svg.append("text")
-    .attr("text-anchor", "middle")
-    .attr("transform", "translate("+ (-vis.margin.left / 1.5) + "," + (vis.height / 2) + ")rotate(-90)")
-    .text("Y Location");
+  // // Label Axes
+  // vis.svg.append("text")
+  //   .attr("text-anchor", "middle")
+  //   .attr("transform", "translate("+ (-vis.margin.left / 1.5) + "," + (vis.height / 2) + ")rotate(-90)")
+  //   .text("Y Location");
 
-  vis.svg.append("text")
-    .attr("text-anchor", "middle")
-    .attr("transform", "translate("+ (vis.width / 2) + "," + vis.height + ")")
-    .text("X Location");
+  // vis.svg.append("text")
+  //   .attr("text-anchor", "middle")
+  //   .attr("transform", "translate("+ (vis.width / 2) + "," + vis.height + ")")
+  //   .text("X Location");
 
-  // Title
-  vis.svg.append("text")
-        .attr("x", (vis.width / 2))
-        .attr("y", 0 - (vis.margin.top / 10))
-        .attr("text-anchor", "middle")
-        .style("font-size", "22px")
-        .text("Shot Chart");
+  // // Title
+  // vis.svg.append("text")
+  //       .attr("x", (vis.width / 2))
+  //       .attr("y", 0 - (vis.margin.top / 10))
+  //       .attr("text-anchor", "middle")
+  //       .style("font-size", "22px")
+  //       .text("Shot Chart");
 
   // Get list of all players that recorded a shot
   var unique = {};
@@ -145,11 +145,12 @@ ShotChartVis = function(_parentElement, _data){
       .append("circle")
       .attr("class", "circle")
       .merge(circle)
-      .attr("r", 3)
+      .attr("r", 2)
       .attr("cx", function(d){ return vis.x(d.LOC_X) })
-      .attr("cy", function(d){ return vis.y(d.LOC_Y) })
+      .attr("cy", function(d){ return vis.y(d.LOC_Y + 20) })
+      // .attr("stroke", "black")
       .attr("fill", function(d){
-        if (d.FGM) { return "green" }
+        if (d.FGM) { return "blue" }
         else { return "red" }
       });
       circle.exit().remove();

@@ -146,16 +146,11 @@ ShotChartVis = function(_parentElement, _data){
   });
 
   // Title
-  vis.svg.append("text")
+  vis.title = vis.svg.append("text")
         .attr("x", (vis.width / 2))
         .attr("y", 0 - (vis.margin.top / 10))
         .attr("text-anchor", "middle")
         .style("font-size", "22px")
-        .attr("fill", function() {
-          selectedTeam = vis.teamDropdown.property("value")
-          return "black"
-        })
-        .text(function() {return vis.teamDropdown.property("value")});
 
   // Call next function
   vis.wrangleData();
@@ -190,6 +185,21 @@ ShotChartVis = function(_parentElement, _data){
 
  ShotChartVis.prototype.updateVis = function(){
     var vis = this;
+
+    vis.title
+      .attr("fill", function() {
+        selectedTeam = vis.teamDropdown.property("value")
+        return teamColors[selectedTeam]["mainColor"]["hex"]
+      })
+      .text(function() {
+        if (vis.playerSelection == 'All') {
+          return vis.teamDropdown.property("value")
+        }
+        else {
+          return vis.playerSelection
+        }
+        
+      });
 
     vis.x.domain(vis.x_extent);
     vis.y.domain(vis.y_extent);

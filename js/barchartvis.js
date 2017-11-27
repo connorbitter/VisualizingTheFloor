@@ -80,12 +80,12 @@ vis.svg.append("text")
         .text("Player FG%");
 
   vis.dropdown = d3.select("#player-dropdown");
-  vis.dropdown.on("change", function() {
+  $("#player-dropdown").change(function() {
     vis.wrangleData();
   });
 
   vis.team_dropdown = d3.select("#team-dropdown");
-  vis.team_dropdown.on("change", function() {
+  $("#team-dropdown").change(function() {
     vis.wrangleData();
   });
 
@@ -178,7 +178,7 @@ BarChartVis.prototype.updateVis = function(){
         return (d.value.toFixed(1) + "%");
     })
     .attr("x", function(d) {
-        return (vis.x(d.key) + vis.x.bandwidth()/4);
+        return (vis.x(d.key) + vis.x.bandwidth()/3);
     })
     .attr("y", function(d, index) {
         return (vis.y(d.value) - 20);

@@ -56,13 +56,13 @@ OpenShotVis = function(_parentElement, _data){
 
   vis.svg.append("text")
     .attr("text-anchor", "middle")
-    .attr("transform", "translate("+ (vis.width / 2) + "," + vis.height + ")")
+    .attr("transform", "translate("+ (vis.width / 2) + "," + (vis.height + 30) + ")")
     .text("Team");
 
   // Title
   vis.svg.append("text")
         .attr("x", (vis.width / 2))
-        .attr("y", 0 - (vis.margin.top / 10))
+        .attr("y", 0 - (vis.margin.top / 5))
         .attr("text-anchor", "middle")
         .style("font-size", "22px")
         .text("Average Closest Defender Distance");

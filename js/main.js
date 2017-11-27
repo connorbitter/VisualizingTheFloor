@@ -8,8 +8,9 @@ queue()
 function createVis(error, data, colors) {
 	console.log(data);
 
-  // store data in global variable
+  // store data global variables
   allData = data;
+  teamColors = colors;
 
   slider_created = false;
   var defenderVis_Threes = new DefenderVis("shot-distance-chart-1", data, 3);

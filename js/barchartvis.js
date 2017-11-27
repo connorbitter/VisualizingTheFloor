@@ -40,7 +40,7 @@ BarChartVis.prototype.initVis = function(){
   vis.yAxis = d3.axisLeft();
 
   // Set domains
-  vis.x.domain(["All FGA", "2PA", "3PA"]);
+  vis.x.domain(["All FGA", "League Avg FGA", "2PA", "League Avg 2PA", "3PA", "League Avg 3PA"]);
   vis.y.domain([0, 100]);
 
   // Draw Axes
@@ -89,20 +89,65 @@ vis.svg.append("text")
     vis.wrangleData();
   });
 
+  // Calculate league averages using entire dataset
+  // Calculate player's overall FG%
+  var makes = 0
+  vis.data.forEach(function(d){
+    makes += d.FGM;
+  })
+  if (vis.data.length == 0){
+    var fg_pct = 0;
+  }
+  else {
+    var fg_pct = 100 * (makes / vis.data.length);
+  }
+
+  // Calculate player's 2-pt FG%
+  var twos = 0
+  vis.data_2 = vis.data.filter(function(d){ return d.PTS_TYPE == 2 })
+  vis.data_2.forEach(function(d){
+    twos += d.FGM;
+  })
+  if (vis.data_2.length == 0){
+    var two_pct = 0;
+  }
+  else {
+    var two_pct = 100 * (twos / vis.data_2.length);
+  }
+  // Calculate player's 3-pt FG%
+  var threes = 0
+  vis.data_3 = vis.data.filter(function(d){ return d.PTS_TYPE == 3 })
+  vis.data_3.forEach(function(d){
+    threes += d.FGM;
+  })
+  if (vis.data_3.length == 0){
+    var three_pct = 0;
+  }
+  else {
+    var three_pct = 100 * (threes / vis.data_3.length);
+  }
+  vis.league_pcts = [{key: "League Avg FGA", value: fg_pct}, {key: "League Avg 2PA", value: two_pct}, {key: "League Avg 3PA", value: three_pct}];
+
   // Call next function
   vis.wrangleData();
 
- }
+}
 
 BarChartVis.prototype.wrangleData = function(){
   var vis = this;
 
   // Get current player selection
-  vis.selection = vis.dropdown.property("value");
+  vis.player_selection = vis.dropdown.property("value");
+  vis.team_selection = vis.team_dropdown.property("value");
 
-  // Filter by current player
+  // Filter by current player or team
   vis.filteredData = vis.data.filter(function(element){
-    return element.PLAYER_NAME == vis.selection;
+    if (vis.player_selection == "All") {
+      return element.TEAM_NAME == vis.team_selection;
+    }
+    else {
+      return element.PLAYER_NAME == vis.player_selection;
+    }
   });
 
   vis.displayData = vis.filteredData;
@@ -143,7 +188,9 @@ BarChartVis.prototype.wrangleData = function(){
   else {
     var three_pct = 100 * (threes / vis.filteredData_3.length);
   }
-  vis.pcts = [{key: "All FGA", value: fg_pct}, {key: "2PA", value: two_pct}, {key: "3PA", value: three_pct}];
+  // vis.pcts = [{key: "All FGA", value: fg_pct}, {key: "2PA", value: two_pct}, {key: "3PA", value: three_pct}];
+
+  vis.pcts = [{key: "All FGA", value: fg_pct}, vis.league_pcts[0], {key: "2PA", value: two_pct}, vis.league_pcts[1], {key: "3PA", value: three_pct}, vis.league_pcts[2]];
 
   vis.updateVis();
  }
@@ -160,7 +207,7 @@ BarChartVis.prototype.updateVis = function(){
     .attr("class", "rect")
     .merge(bar)
     .transition()
-    .attr("x", function(d){ return vis.x(d.key) })
+    .attr("x", function(d){ return vis.x(d.key) + 10 })
     .attr("y", function(d){ return vis.y(d.value) })
     .attr("width", vis.x.bandwidth() - 20)
     .attr("height", function(d) { return (vis.height - vis.y(d.value)) });
@@ -178,7 +225,7 @@ BarChartVis.prototype.updateVis = function(){
         return (d.value.toFixed(1) + "%");
     })
     .attr("x", function(d) {
-        return (vis.x(d.key) + vis.x.bandwidth()/3);
+        return (vis.x(d.key) + vis.x.bandwidth()/6);
     })
     .attr("y", function(d, index) {
         return (vis.y(d.value) - 20);

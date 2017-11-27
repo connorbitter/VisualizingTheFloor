@@ -66,50 +66,107 @@ ShotChartVis = function(_parentElement, _data){
   //   .attr("transform", "translate("+ (vis.width / 2) + "," + vis.height + ")")
   //   .text("X Location");
 
-  // // Title
-  // vis.svg.append("text")
-  //       .attr("x", (vis.width / 2))
-  //       .attr("y", 0 - (vis.margin.top / 10))
-  //       .attr("text-anchor", "middle")
-  //       .style("font-size", "22px")
-  //       .text("Shot Chart");
-
   // Get list of all players that recorded a shot
   var unique = {};
-  var players = [];
-  for (var i=0; i < vis.data.length; i++){
-   if(typeof(unique[vis.data[i].PLAYER_NAME]) == "undefined"){
-    players.push(vis.data[i].PLAYER_NAME);
+  vis.players = [];
+  for (var i = 0; i < vis.data.length; i++){
+   if(typeof(unique[vis.data[i].PLAYER_NAME]) == "undefined") {
+    vis.players.push([vis.data[i].PLAYER_NAME, vis.data[i].TEAM_NAME]);
    }
+
    unique[vis.data[i].PLAYER_NAME] = 0;
   }
 
+  // Get list of all teams that recorded a shot
+  var unique2 = {};
+  vis.teams = [];
+  for (var i = 0; i < vis.data.length; i++){
+   if(typeof(unique2[vis.data[i].TEAM_NAME]) == "undefined"){
+    vis.teams.push(vis.data[i].TEAM_NAME);
+   }
+   unique2[vis.data[i].TEAM_NAME] = 0;
+  };
+
   // Function to sort players by last name
-  function compare(a, b) {
-    var splitA = a.split(" ");
-    var splitB = b.split(" ");
-    var lastA = splitA[splitA.length - 1];
-    var lastB = splitB[splitB.length - 1];
+  // function compare(a, b) {
+  //   var splitA = a.split(" ");
+  //   var splitB = b.split(" ");
+  //   var lastA = splitA[splitA.length - 1];
+  //   var lastB = splitB[splitB.length - 1];
 
-    if (lastA < lastB) return -1;
-    if (lastA > lastB) return 1;
-    return 0;
-  }
-  players = players.sort(compare);
+  //   if (lastA < lastB) return -1;
+  //   if (lastA > lastB) return 1;
+  //   return 0;
+  // }
+  // players = players.sort(compare);
+  vis.teams = vis.teams.sort();
 
-  // Add players as selectbox options
-  var sel = document.getElementById('player-dropdown');
-  for(var i = 0; i < players.length; i++) {
+
+  // Create team dropdown
+  vis.teamDropdown = d3.select("#team-dropdown");
+  var sel = document.getElementById('team-dropdown');
+  for(var i = 0; i < vis.teams.length; i++) {
+    if (vis.teams[i] != "Golden State Warriors") {
       var opt = document.createElement('option');
-      opt.innerHTML = players[i];
-      opt.value = players[i];
+      opt.innerHTML = vis.teams[i];
+      opt.value = vis.teams[i];
       sel.appendChild(opt);
+    }
   }
 
-  vis.dropdown = d3.select("#player-dropdown");
-  vis.dropdown.on("change", function() {
+  // Create player dropdown
+  vis.playerDropdown = d3.select("#player-dropdown");
+  vis.playerDropdown.innerHTML = '<option value="All" selected="selected">All</option>'
+
+  vis.teamPlayers = vis.players.filter(function(d) {
+    return d[1] == vis.teamDropdown.property("value");
+  });
+
+  var sel = document.getElementById('player-dropdown');
+  for (var i = 0; i < vis.teamPlayers.length; i++) {
+    var opt = document.createElement('option');
+    opt.innerHTML = vis.teamPlayers[i][0];
+    opt.value = vis.teamPlayers[i][0];
+    sel.appendChild(opt);
+  }
+
+
+  vis.teamDropdown.on("change", function() {
+
+    // Change the players in the dropdown based on team selected
+    var sel = document.getElementById('player-dropdown');
+
+    sel.innerHTML = '<option value="All" selected="selected">All</option>'
+
+    vis.teamPlayers = vis.players.filter(function(d) {
+      return d[1] == vis.teamDropdown.property("value");
+    });
+
+    for(var i = 0; i < vis.teamPlayers.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = vis.teamPlayers[i][0];
+        opt.value = vis.teamPlayers[i][0];
+        sel.appendChild(opt);
+    }
+
     vis.wrangleData();
   });
+
+  vis.playerDropdown.on("change", function() {
+    vis.wrangleData();
+  });
+
+  // Title
+  vis.svg.append("text")
+        .attr("x", (vis.width / 2))
+        .attr("y", 0 - (vis.margin.top / 10))
+        .attr("text-anchor", "middle")
+        .style("font-size", "22px")
+        .attr("fill", function() {
+          selectedTeam = vis.teamDropdown.property("value")
+          return "black"
+        })
+        .text(function() {return vis.teamDropdown.property("value")});
 
   // Call next function
   vis.wrangleData();
@@ -119,13 +176,23 @@ ShotChartVis = function(_parentElement, _data){
  ShotChartVis.prototype.wrangleData = function(){
     var vis = this;
 
-    // Get current player selection
-    vis.selection = vis.dropdown.property("value");
+    // Get current team selection
+    vis.teamSelection = vis.teamDropdown.property("value");
 
-    // Filter by current player
+    // Filter by current team
     vis.filteredData = vis.data.filter(function(element){
-      return element.PLAYER_NAME == vis.selection;
+        return element.TEAM_NAME == vis.teamSelection;
     });
+
+    // Get current player selection
+    vis.playerSelection = vis.playerDropdown.property("value");
+
+    // Filter by current player if one is selected
+    if (vis.playerSelection != "All") {
+      vis.filteredData = vis.filteredData.filter(function(element){
+        return element.PLAYER_NAME == vis.playerSelection;
+      });
+    }
 
     vis.displayData = vis.filteredData;
 

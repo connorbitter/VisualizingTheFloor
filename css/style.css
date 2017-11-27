@@ -23,24 +23,15 @@ h1, h2, h3, h4, h5 {
 }
 
 section {
-  margin: 4rem 0;
+  padding: 4rem 0;
 }
 
+section:nth-of-type(odd) {
+    background: #F4F4F4;
+}
 
-/* Section dividers, modified from: https://www.diviguide.com/section-dividers/ */
-section::after {
-  display:block;
-  position:relative;
-  content:'';
-  bottom: -2rem;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  background: #141115;
-  box-shadow: 30px 0 #FFC72D, -30px 0 #003DA5;
+section:nth-of-type(even) {
+    background: #fefefe;
 }
 
 .vis {
@@ -75,6 +66,9 @@ section::after {
   font-size: 1rem;
   text-align: center;
 }
+
+/* Shot Chart */
+
 
 /* Defender Distance Section */
 

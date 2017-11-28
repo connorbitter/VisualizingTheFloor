@@ -210,7 +210,17 @@ BarChartVis.prototype.updateVis = function(){
     .attr("x", function(d){ return vis.x(d.key) + 10 })
     .attr("y", function(d){ return vis.y(d.value) })
     .attr("width", vis.x.bandwidth() - 20)
-    .attr("height", function(d) { return (vis.height - vis.y(d.value)) });
+    .attr("height", function(d) { return (vis.height - vis.y(d.value)) })
+    .attr("fill", function(d, index) {
+      vis.teamDropdown = d3.select("#team-dropdown");
+      if (index % 2 == 0) {
+        selectedTeam = vis.teamDropdown.property("value")
+        return teamColors[selectedTeam]["mainColor"]["hex"]
+      }
+      else {
+        return "#DEC5E3"
+      }
+    });
   bar.exit().remove();
 
   var height = vis.svg

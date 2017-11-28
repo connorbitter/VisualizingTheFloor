@@ -224,6 +224,7 @@ ShotChartVis = function(_parentElement, _data){
       .attr("fill", function(d){
         if (d.FGM) { return "blue" }
         else { return "red" }
-      });
+      })
+      .attr("opacity", 0.2)
       circle.exit().remove();
  }

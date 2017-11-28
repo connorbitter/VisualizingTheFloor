@@ -54,18 +54,25 @@
             <p>Using a combination the NBA's API and Kaggle datasets, we were able to determine the location from which over 110,000 shots were taken during the 2014-2015 season.  This information, grouped by team and player, can be found below, and although representing incomplete data, it does show the beginning of shot stratification across the league, as a high concentration of attempts come either at the rim or from 3.</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4">
-            <select id="team-dropdown">
-              <option value="Golden State Warriors" selected="selected">Golden State Warriors</option>
-            </select>
-            <select id="player-dropdown">
-              <option value="All" selected="selected">All</option>
-            </select>
+
+        <div class="row align-items-center">
+          <div class="col-lg-3">
             <div class="vis" id="shot-chart-court"></div>
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-6">
             <div class="vis" id="bar-chart-percentages"></div>
+          </div>
+          <div class="col-lg-3">
+            <form>
+              <label>Team: </label>
+              <select class="form-control" id="team-dropdown">
+                <option value="Golden State Warriors" selected="selected">Golden State Warriors</option>
+              </select>
+              <label>Player: </label>
+              <select class="form-control" id="player-dropdown">
+                <option value="All" selected="selected">All</option>
+              </select>
+            </form>
           </div>
         </div>
       </div>

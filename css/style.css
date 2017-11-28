@@ -34,6 +34,11 @@ section:nth-of-type(even) {
     background: #fefefe;
 }
 
+label {
+  font-weight: bold;
+  padding-top: 0.5rem;
+}
+
 .vis {
   margin: 2rem 0;
 }

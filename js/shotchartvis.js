@@ -24,14 +24,19 @@ ShotChartVis = function(_parentElement, _data){
   vis.margin = {top: 20, right: 20, bottom: 40, left: 20};
 
   vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-  vis.height = 300 - vis.margin.top - vis.margin.bottom;
+  vis.height = (vis.width * 0.94) * 2;
 
   // SVG drawing area
   vis.svg = d3.select("#" + vis.parentElement).append("svg")
     .attr("width", vis.width + vis.margin.left + vis.margin.right)
     .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
     .append("g")
-    .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+    .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")")
+    .attr("class", "shotchart-background");
+  d3.select("g").append("image")
+                .attr("xlink:href", "/../images/Court.png")
+                .attr("width", vis.width)
+                .attr("height", vis.height);
 
   vis.x_extent = d3.extent(vis.data, function(d) {return d.LOC_X});
   vis.y_extent = d3.extent(vis.data, function(d) {return d.LOC_Y});
@@ -214,7 +219,7 @@ ShotChartVis = function(_parentElement, _data){
       .transition(2000)
       .attr("r", 2)
       .attr("cx", function(d){ return vis.x(d.LOC_X) })
-      .attr("cy", function(d){ return vis.y(d.LOC_Y + 20) })
+      .attr("cy", function(d){ return vis.y(d.LOC_Y) })
       // .attr("stroke", "black")
       .attr("fill", function(d){
         if (d.FGM) { return "blue" }

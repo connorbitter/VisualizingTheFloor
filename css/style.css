@@ -68,7 +68,9 @@ section:nth-of-type(even) {
 }
 
 /* Shot Chart */
-
+.shotchart-background {
+  background-image: url('../images/shotchart_court.png');
+}
 
 /* Defender Distance Section */
 

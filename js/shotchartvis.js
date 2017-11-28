@@ -34,7 +34,7 @@ ShotChartVis = function(_parentElement, _data){
     .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")")
     .attr("class", "shotchart-background");
   d3.select("g").append("image")
-                .attr("xlink:href", "/../images/Court.png")
+                .attr("href", "/../images/Court.png")
                 .attr("width", vis.width)
                 .attr("height", vis.height);
 

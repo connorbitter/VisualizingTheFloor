@@ -77,7 +77,7 @@ vis.svg.append("text")
         .attr("y", 0 - (vis.margin.top / 10))
         .attr("text-anchor", "middle")
         .style("font-size", "22px")
-        .text("Player FG%");
+        .text("Selected FG%");
 
   vis.dropdown = d3.select("#player-dropdown");
   $("#player-dropdown").change(function() {

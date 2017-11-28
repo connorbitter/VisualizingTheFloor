@@ -99,13 +99,13 @@ OpenShotVis = function(_parentElement, _data){
     }
 
     for(team in sums) {
-        results.push({ key: +team, value: sums[team] / counts[team] });
+        results.push({ key: team, value: sums[team] / counts[team] });
     }
     return [results, Object.keys(sums)];
   }
 
   // Average closest defender by team
-  var results = average(vis.data, "TEAM_ID", "CLOSE_DEF_DIST");
+  var results = average(vis.data, "TEAM_NAME", "CLOSE_DEF_DIST");
   vis.averages = results[0];
   vis.teams = results[1];
 
@@ -118,6 +118,18 @@ OpenShotVis = function(_parentElement, _data){
   // Set domains
   vis.x.domain(vis.teams);
   vis.y.domain([0, d3.max(vis.averages, function(d){ return d.value })]);
+
+    // Add Axes
+  vis.xAxis.scale(vis.x);
+  vis.yAxis.scale(vis.y).tickFormat(function(d){return d });
+
+  // HAVE TO FIX THIS EVENTUALLY
+  //d3.select("#" + vis.parentElement + " .x-axis")
+  //  .call(vis.xAxis)
+
+  d3.select("#" + vis.parentElement + " .y-axis")
+    .call(vis.yAxis)
+
 
   var bar = vis.svg
     .selectAll("rect")

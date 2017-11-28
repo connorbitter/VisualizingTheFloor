@@ -49,7 +49,7 @@ section:nth-of-type(even) {
   background-color: #141115;
 
   /* http://www.sandiegouniontribune.com/sports/sdut-virtual-reality-golden-state-warriors-kenny-lauer-2015may21-story.html*/
-  background-image: url('VisualizingTheFloor/images/gsw-1.jpg');
+  background-image: url('../images/gsw-1.jpg');
   background-size: cover;
   background-position: top center;
 }

@@ -21,7 +21,7 @@ ShotChartVis = function(_parentElement, _data){
  ShotChartVis.prototype.initVis = function(){
   var vis = this;
 
-  vis.margin = {top: 20, right: 20, bottom: 40, left: 20};
+  vis.margin = {top: 10, right: 10, bottom: 10, left: 10};
 
   vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
   vis.height = (vis.width * 0.94) * 2;
@@ -33,7 +33,8 @@ ShotChartVis = function(_parentElement, _data){
     .append("g")
     .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")")
     .attr("class", "shotchart-background");
-  d3.select("g").append("image")
+  
+  d3.select("#" + vis.parentElement + " g").append("image")
                 .attr("href", "images/Court.png")
                 .attr("width", vis.width)
                 .attr("height", vis.height);

@@ -83,3 +83,18 @@ label {
 #def-dist-slider .noUi-tooltip {
   bottom: -170%;
 }
+
+/* Writers visualization */
+#writer-vis {
+  padding-bottom: 10px;
+}
+
+#writer-vis svg {
+  fill: #E4E4E4;
+  padding: 3px 0;
+  width: 50px;
+}
+
+#writer-vis svg:first-of-type {
+  fill: #FFC72D;
+}

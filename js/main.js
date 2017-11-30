@@ -1,3 +1,4 @@
+// Create writers vis
 var writerSVG = `
 <svg class="writer" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    viewBox="0 0 350 350" style="enable-background:new 0 0 350 350;" xml:space="preserve">
@@ -21,14 +22,22 @@ for (var i = 0; i < 28; i++) {
 queue()
   .defer(d3.json,"data/data_cleaned.json")
   .defer(d3.json,"data/team_colors.json")
+  .defer(d3.csv, "data/14-15-pergame.csv")
   .await(createVis);
 
 // Static Components
-function createVis(error, data, colors) {
+function createVis(error, data, colors, season) {
 	console.log(data);
 
   // Store data global variables
   allData = data;
+
+  // Store 2014-2015 season data
+  seasonData = {};
+  for (var i = 0; i < season.length; i++) {
+    seasonData[season[i]['TEAM']] = season[i]
+    delete seasonData[season[i]['TEAM']].TEAM
+  }
 
   // Store team color data
   teamColors = {};

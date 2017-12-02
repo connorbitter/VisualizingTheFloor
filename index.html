@@ -18,18 +18,27 @@
   <!-- Custom CSS code -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-spy="scroll" data-target="#main-nav" data-offset="0">
+
+  <nav class="navbar sticky-top navbar-dark" id="main-nav">
+    <a class="navbar-brand" href="#top-container">BIG DATA BASKETBALL</a>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="#intro">Introduction</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#shot-chart">Shot Chart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#touch-time">Touch Time</a>
+        </li>
+      </ul>
+  </nav>
 
   <div id="top-container">
     <h1>Big Data Basketball</h1>
     <h2>Exploring the Golden State Warriors' record-breaking 2014-2015 season and how it changed the game.</h2>
   </div>
-
-<!--   <div class="container-fluid"> -->
-
-<!--     <nav class="navbar sticky-top navbar-light bg-faded">
-      <a class="navbar-brand" href="#">Sticky top</a>
-    </nav> -->
 
     <!--  INTRODUCTION  -->
     <section id="intro">
@@ -74,10 +83,10 @@
         </div>
 
         <div class="row align-items-center">
-          <div class="col-lg-3">
+          <div class="col-lg-6">
             <div class="vis" id="shot-chart-court"></div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-3">
             <div class="vis" id="bar-chart-percentages"></div>
           </div>
           <div class="col-lg-3">
@@ -144,10 +153,10 @@
         <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-4">
                 <div class="vis" id="touch-time-chart-1"></div>
               </div>
-              <div class="col-lg-6">
+              <div class="col-lg-4">
                 <div class="vis" id="touch-time-chart-2"></div>
               </div>
             </div>
@@ -213,7 +222,6 @@
         </div>
       </div>
     </section>
-  </div>
 
   <!-- Load JS libraries -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

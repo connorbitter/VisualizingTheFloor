@@ -43,6 +43,11 @@ label {
   margin: 2rem 0;
 }
 
+/* Nav */
+.navbar-dark {
+  background: #141115;
+}
+
 /* Top */
 #top-container {
   height: 100vh;

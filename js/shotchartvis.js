@@ -218,7 +218,7 @@ ShotChartVis = function(_parentElement, _data){
       .attr("class", "circle")
       .merge(circle)
       .transition(2000)
-      .attr("r", 2)
+      .attr("r", 4)
       .attr("cx", function(d){ return vis.x(d.LOC_X) })
       .attr("cy", function(d){ return vis.y(d.LOC_Y) })
       // .attr("stroke", "black")

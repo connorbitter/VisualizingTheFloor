@@ -33,11 +33,25 @@ function createVis(error, data, colors, season) {
   allData = data;
 
   // Store 2014-2015 season data
-  seasonData = {};
+  /*seasonData = {};
   for (var i = 0; i < season.length; i++) {
     seasonData[season[i]['TEAM']] = season[i]
+    for (var key in season[i]) {
+      if (key != "TEAM") {
+        seasonData[season[i]['TEAM']][key] = +seasonData[season[i]['TEAM']][key]
+      }
+    }
     delete seasonData[season[i]['TEAM']].TEAM
-  }
+  }*/
+  var keys = Object.keys(season[0]);
+  var keyslength = keys.length;
+  season.forEach(function(d) {
+    for (var k = 0; k < keyslength; k++) {
+      if (keys[k] != "TEAM") {
+        d[keys[k]] = +d[keys[k]];
+      }
+    }
+  });
 
   // Store team color data
   teamColors = {};
@@ -60,5 +74,7 @@ function createVis(error, data, colors, season) {
   var openShotVis = new OpenShotVis("open-shot", data);
 
   var barChartVis = new BarChartVis("bar-chart-percentages", data);
+
+  var scatterPlotVis = new ScatterPlotVis("scatter-plot", season);
 
 }

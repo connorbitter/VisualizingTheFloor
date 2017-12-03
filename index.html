@@ -223,6 +223,29 @@
       </div>
     </section>
 
+    <!--  SCATTER PLOTS  -->
+    <section id="winning-relationships">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>How do different stats relate to winning?</h1>
+            <p>Explain relationships here.</p>
+          </div>
+        </div>
+        <form>
+              <label>Statistic: </label>
+              <select class="form-control" id="stat-dropdown">
+                <option value="PTS" selected="selected">PTS</option>
+              </select>
+            </form>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="vis" id="scatter-plot"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   <!-- Load JS libraries -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -238,6 +261,7 @@
   <script src="js/openshotvis.js"></script>
   <script src="js/linechartvis.js"></script>
   <script src="js/barchartvis.js"></script>
+  <script src="js/scatterplot.js"></script>
 
 </body>
 </html>

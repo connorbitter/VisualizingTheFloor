@@ -76,6 +76,13 @@ ScatterPlotVis.prototype.initVis = function(){
     vis.wrangleData();
   });
 
+  // Use d3-tip
+  vis.tip = d3.tip()
+      .attr("class", "d3-tip")
+      .offset([-10,0])
+      .html(function(d) { return d.TEAM; });
+  vis.svg.call(vis.tip);
+
   // Call next function
   vis.wrangleData();
 
@@ -109,6 +116,8 @@ ScatterPlotVis.prototype.updateVis = function(){
       if (d.TEAM == "Golden State"){ return "blue"; }
       else { return "black"; }
     })
+    .on("mouseover", vis.tip.show)
+    .on("mouseout", vis.tip.hide)
     .merge(circle)
     .transition(2000)
     .attr("r", 4)

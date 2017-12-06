@@ -1,4 +1,4 @@
-/* 
+/*
     === Color Palette ===
     GSW Blue:     #003DA5
     GSW Yellow:   #FFC72D
@@ -37,6 +37,10 @@ section:nth-of-type(even) {
 label {
   font-weight: bold;
   padding-top: 0.5rem;
+}
+
+footer {
+  text-align: center;
 }
 
 .vis {

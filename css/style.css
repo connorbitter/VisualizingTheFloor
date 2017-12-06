@@ -52,6 +52,12 @@ footer {
   background: #141115;
 }
 
+.regression-line {
+    stroke: #003DA5;
+    fill: none;
+    stroke-width: 3;
+}
+
 /* Top */
 #top-container {
   height: 100vh;

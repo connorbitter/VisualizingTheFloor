@@ -20,6 +20,8 @@ ScatterPlotVis = function(_parentElement, _data){
 ScatterPlotVis.prototype.initVis = function(){
   var vis = this;
 
+  vis.ctr = 0;
+
   vis.margin = {top: 20, right: 20, bottom: 40, left: 80};
 
   vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
@@ -146,8 +148,8 @@ ScatterPlotVis.prototype.updateVis = function(){
   vis.yAxis.scale(vis.y);
 
   d3.select("#" + vis.parentElement + " .x-axis")
-  .transition(2000)
-  .call(vis.xAxis);
+    .transition(2000)
+    .call(vis.xAxis);
 
   d3.select("#" + vis.parentElement + " .y-axis")
     .transition(2000)
@@ -160,4 +162,79 @@ ScatterPlotVis.prototype.updateVis = function(){
     .attr("text-anchor", "middle")
     .attr("transform", "translate("+ (vis.width / 2) + "," + (vis.height + vis.margin.bottom) + ")")
     .text(vis.selectedStat);
+
+  function create_data(d) {
+    var x = [];
+    var y = [];
+    d.forEach(function(ele){
+      x.push(ele[vis.selectedStat])
+      y.push(ele.Wins)
+    });
+    var n = x.length;
+    var x_mean = 0;
+    var y_mean = 0;
+    var term1 = 0;
+    var term2 = 0;
+
+    for (var i = 0; i < n; i++) {
+        x_mean += x[i]
+        y_mean += y[i]
+    }
+
+    x_mean /= n;
+    y_mean /= n;
+
+    var xr = 0;
+    var yr = 0;
+    for (i = 0; i < x.length; i++) {
+        xr = x[i] - x_mean;
+        yr = y[i] - y_mean;
+        term1 += xr * yr;
+        term2 += xr * xr;
+
+    }
+
+    var b1 = term1 / term2;
+    var b0 = y_mean - (b1 * x_mean);
+
+    var yhat = [];
+    for (i = 0; i < x.length; i++) {
+        yhat.push(b0 + (x[i] * b1));
+    }
+
+    var data = [];
+    for (i = 0; i < y.length; i++) {
+        data.push({
+            "yhat": +yhat[i],
+            "y": +y[i],
+            "x": +x[i]
+        })
+    }
+    return (data);
+  }
+
+  var regressionData = create_data(vis.displayData);
+
+  var newline = d3.line()
+      .x(function(d) {
+          return vis.x(d.x);
+      })
+      .y(function(d) {
+          return vis.y(d.yhat);
+      });
+
+  if (vis.ctr == 0){
+    vis.svg.append("path")
+        .datum(regressionData)
+        .attr("clip-path", "url(#" + vis.parentElement + ")")
+        .attr("class", "regression-line")
+        .attr("d", newline);
+  }
+
+  vis.svg.select("path.regression-line")
+            .datum(regressionData)
+            .transition()
+            .attr("d", newline);
+
+  vis.ctr += 1;
 }

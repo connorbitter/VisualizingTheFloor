@@ -109,6 +109,7 @@ ScatterPlotVis.prototype.updateVis = function(){
   var circle = vis.svg
     .selectAll("circle")
     .data(vis.displayData);
+
   circle.enter()
     .append("circle")
     .attr("class", "circle")
@@ -116,8 +117,19 @@ ScatterPlotVis.prototype.updateVis = function(){
       if (d.TEAM == "Golden State"){ return "blue"; }
       else { return "black"; }
     })
-    .on("mouseover", vis.tip.show)
-    .on("mouseout", vis.tip.hide)
+    .on("mouseover", function(d) {
+      vis.tip.show;
+      d3.select(this).style("fill", function(d2) {
+        return teamColors[d.TEAM]['mainColor']['hex']
+      })
+     })
+    .on("mouseout", function(d) {
+      vis.tip.hide;
+      d3.select(this).style("fill", function(d2) {
+        // if GSW nothing
+        return "black";
+      })
+     })
     .merge(circle)
     .transition(2000)
     .attr("r", 4)

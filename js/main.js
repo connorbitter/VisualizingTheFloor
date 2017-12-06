@@ -18,6 +18,9 @@ for (var i = 0; i < 28; i++) {
   $("#writer-vis").append(writerSVG);
 }
 
+// Initiate Counters
+$('.counter').counterUp();
+
 // Load data asynchronously
 queue()
   .defer(d3.json,"data/data_cleaned.json")
@@ -60,6 +63,7 @@ function createVis(error, data, colors, season) {
   }
 
   slider_created = false;
+  
   var defenderVis_Threes = new DefenderVis("shot-distance-chart-1", data, 3);
   var defenderVis = new DefenderVis("shot-distance-chart-2", data, 2);
 

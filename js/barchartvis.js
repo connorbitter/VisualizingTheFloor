@@ -209,7 +209,7 @@ BarChartVis.prototype.updateVis = function(){
     .transition()
     .attr("x", function(d){ return vis.x(d.key) + 10 })
     .attr("y", function(d){ return vis.y(d.value) })
-    .attr("width", vis.x.bandwidth() - 20)
+    .attr("width", vis.x.bandwidth() - 10)
     .attr("height", function(d) { return (vis.height - vis.y(d.value)) })
     .attr("fill", function(d, index) {
       vis.teamDropdown = d3.select("#team-dropdown");

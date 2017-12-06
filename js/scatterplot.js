@@ -80,7 +80,7 @@ ScatterPlotVis.prototype.initVis = function(){
   vis.tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10,0])
-      .html(function(d) { return d.TEAM; });
+      .html(function(d) { return d.TEAM ; });
   vis.svg.call(vis.tip);
 
   // Call next function
@@ -114,22 +114,22 @@ ScatterPlotVis.prototype.updateVis = function(){
     .append("circle")
     .attr("class", "circle")
     .attr("fill", function(d){
-      if (d.TEAM == "Golden State"){ return "blue"; }
-      else { return "black"; }
+      if (d.TEAM == "Golden State Warriors"){ return teamColors[d.TEAM]['mainColor']['hex']; }
+      else { return "#141115"; }
     })
-    .on("mouseover", function(d) {
-      vis.tip.show;
-      d3.select(this).style("fill", function(d2) {
-        return teamColors[d.TEAM]['mainColor']['hex']
-      })
-     })
-    .on("mouseout", function(d) {
-      vis.tip.hide;
-      d3.select(this).style("fill", function(d2) {
-        // if GSW nothing
-        return "black";
-      })
-     })
+    // .on("mouseover", function(d) {
+    //   d3.select(this).style("fill", function(d2) {
+    //     return teamColors[d.TEAM]['mainColor']['hex']
+    //   })
+    // })
+    .on("mouseover", vis.tip.show)
+    .on("mouseout", vis.tip.hide)
+    // .on("mouseout", function(d) {
+    //   d3.select(this).style("fill", function(d2) {
+    //     if (d.TEAM == "Golden State Warriors"){ return teamColors[d.TEAM]['mainColor']['hex']; }
+    //     else { return "#141115"; }
+    //   })
+    // })
     .merge(circle)
     .transition(2000)
     .attr("r", 4)

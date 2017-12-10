@@ -21,10 +21,10 @@ ShotChartVis = function(_parentElement, _data){
  ShotChartVis.prototype.initVis = function(){
   var vis = this;
 
-  vis.margin = {top: 10, right: 10, bottom: 10, left: 10};
+  vis.margin = {top: 30, right: 10, bottom: 10, left: 10};
 
   vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-  vis.height = (vis.width * 0.94) * 2;
+  vis.height = (vis.width * 0.94);
 
   // SVG drawing area
   vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -47,7 +47,7 @@ ShotChartVis = function(_parentElement, _data){
       .range([0, vis.width]);
 
   vis.y = d3.scaleLinear()
-    .range([vis.height, 0]);
+    .range([vis.height, -vis.height]);
 
   // Axes
   vis.xAxis = d3.axisBottom();
@@ -227,5 +227,10 @@ ShotChartVis = function(_parentElement, _data){
         else { return "red" }
       })
       .attr("opacity", 0.2)
+      .style("display", function(d) {
+        if (vis.y(d.LOC_Y) <= 0) {
+          return "none";
+        }
+      })
       circle.exit().remove();
  }

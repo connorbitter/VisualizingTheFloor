@@ -29,8 +29,16 @@ BarChartVis.prototype.initVis = function(){
     .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
   // Scales
+  vis.xGroup = d3.scaleBand()
+                    .domain(["All FGA", "2PA", "3PA"])
+                    .range([0, vis.width])
+                    .padding(0.15);
+
+
   vis.x = d3.scaleBand()
-      .range([0, vis.width]);
+      .domain(["Selected", "League"])
+      .range([0, vis.xGroup.bandwidth()])
+      .paddingInner(0.02);
 
   vis.y = d3.scaleLinear()
     .range([vis.height, 0]);
@@ -40,7 +48,7 @@ BarChartVis.prototype.initVis = function(){
   vis.yAxis = d3.axisLeft();
 
   // Set domains
-  vis.x.domain(["All FGA", "League Avg FGA", "2PA", "League Avg 2PA", "3PA", "League Avg 3PA"]);
+  // vis.x.domain(["All FGA", "League Avg FGA", "2PA", "League Avg 2PA", "3PA", "League Avg 3PA"]);
   vis.y.domain([0, 100]);
 
   // Draw Axes
@@ -58,7 +66,7 @@ vis.svg.append("text")
   .text("FG%");
 
   // Add Axes
-  vis.xAxis.scale(vis.x);
+  vis.xAxis.scale(vis.xGroup);
   vis.yAxis.scale(vis.y).tickFormat(function(d){return d + "%"});
 
   d3.select("#" + vis.parentElement + " .x-axis")
@@ -126,7 +134,7 @@ vis.svg.append("text")
   else {
     var three_pct = 100 * (threes / vis.data_3.length);
   }
-  vis.league_pcts = [{key: "League Avg FGA", value: fg_pct}, {key: "League Avg 2PA", value: two_pct}, {key: "League Avg 3PA", value: three_pct}];
+  vis.league_pcts = [{group: "All FGA", bar: "League", value: fg_pct}, {group: "2PA", bar:"League", value: two_pct}, {group: "3PA", bar: "League", value: three_pct}];
 
   // Call next function
   vis.wrangleData();
@@ -190,7 +198,7 @@ BarChartVis.prototype.wrangleData = function(){
   }
   // vis.pcts = [{key: "All FGA", value: fg_pct}, {key: "2PA", value: two_pct}, {key: "3PA", value: three_pct}];
 
-  vis.pcts = [{key: "All FGA", value: fg_pct}, vis.league_pcts[0], {key: "2PA", value: two_pct}, vis.league_pcts[1], {key: "3PA", value: three_pct}, vis.league_pcts[2]];
+  vis.pcts = [{group: "All FGA", bar:"Selected", value: fg_pct}, vis.league_pcts[0], {group: "2PA", bar: "Selected", value: two_pct}, vis.league_pcts[1], {group: "3PA", bar:"Selected", value: three_pct}, vis.league_pcts[2]];
 
   vis.updateVis();
  }
@@ -207,9 +215,15 @@ BarChartVis.prototype.updateVis = function(){
     .attr("class", "rect")
     .merge(bar)
     .transition()
-    .attr("x", function(d){ return vis.x(d.key) + 10 })
+    .attr("transform", function(d) {
+      console.log(d.group);
+      return "translate(" + vis.xGroup(d.group) + ",0)";
+    })
+    .attr("x", function(d){
+      return vis.x(d.bar);
+    })
     .attr("y", function(d){ return vis.y(d.value) })
-    .attr("width", vis.x.bandwidth() - 10)
+    .attr("width", vis.x.bandwidth())
     .attr("height", function(d) { return (vis.height - vis.y(d.value)) })
     .attr("fill", function(d, index) {
       vis.teamDropdown = d3.select("#team-dropdown");
@@ -234,11 +248,14 @@ BarChartVis.prototype.updateVis = function(){
     .text(function(d) {
         return (d.value.toFixed(1) + "%");
     })
+    .attr("transform", function(d) {
+      return "translate(" + vis.xGroup(d.group) + ",0)";
+    })
     .attr("x", function(d) {
-        return (vis.x(d.key) + vis.x.bandwidth()/6);
+        return (vis.x(d.bar) + 4);
     })
     .attr("y", function(d, index) {
-        return (vis.y(d.value) - 20);
+        return (vis.y(d.value) - 5);
     })
     height.exit().remove();
  }

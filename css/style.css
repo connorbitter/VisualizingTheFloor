@@ -118,6 +118,7 @@ footer {
   fill: #FFC72D;
 }
 
+/* Scatter Plot */
 
 /*  Tooltips for Scatterplot  */
 /*  Modified from hw05 code   */
@@ -172,4 +173,13 @@ footer {
 
 .heights {
   font-size: 0.75rem;
+}
+
+/* Footer */
+.footer {
+  padding-top: 1rem;
+  color: #F4F4F4;
+  background-color: #141115;
+  position: absolute;
+  width: 100%;
 }

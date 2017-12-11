@@ -244,11 +244,12 @@
           <div class="col-lg-5">
             <div class="vis" id="scatter-plot"></div>
             <form>
-              <label>Statistic: </label>
-              <select class="form-control" id="stat-dropdown">
-              <option value="PTS" selected="selected">PTS</option>
-              </select>
-            </form>
+              <div class="form-group row">
+                <label>Statistic: </label>
+                <select class="form-control form-control-sm" id="stat-dropdown">
+                  <option value="PTS" selected="selected">PTS</option>
+                </select>
+              </div>
           </div>
           <div class="col-lg-7">
             <table class="table" id="scatter-table">
@@ -279,9 +280,10 @@
       </div>
     </section>
 
-    <footer>
-      <p>Created by Connor Bitter, Brian Ge, and Ryan Plunkett</p>
-      <p>Data drawn from <a href="https://www.kaggle.com/dansbecker/nba-shot-logs"> Kaggle</a>, <a href="http://www.espn.com/nba/statistics/team/_/stat/offense-per-game/sort/avgFreeThrowsAttempted/year/2015">ESPN</a>, and the NBA's <a href="http://stats.nba.com/">API</a></p>
+    <footer class="footer">
+      <div id="authors">Created by Connor Bitter, Brian Ge, and Ryan Plunkett</div>
+      <p class="small">Data drawn from <a href="https://www.kaggle.com/dansbecker/nba-shot-logs"> Kaggle</a>, <a href="http://www.espn.com/nba/statistics/team/_/stat/offense-per-game/sort/avgFreeThrowsAttempted/year/2015">ESPN</a>, and the NBA's <a href="http://stats.nba.com/">API</a></p>
+      <p class="small">For educational purposes only, we do not own any of this content</p>
     </footer>
 
   <!-- Load JS libraries -->

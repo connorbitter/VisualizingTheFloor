@@ -130,6 +130,10 @@ ScatterPlotVis.prototype.updateVis = function(){
     .selectAll("circle")
     .data(vis.displayData);
 
+    var t = d3.transition()
+      .duration(1000)
+      .ease(d3.easeCubicInOut);
+
   circle.enter()
     .append("circle")
     .attr("class", "circle")
@@ -152,26 +156,34 @@ ScatterPlotVis.prototype.updateVis = function(){
     // })
     .on("click", function(d) {showTable(d)})
     .merge(circle)
-    .transition(2000)
+    .transition(t)
     .attr("r", 4)
     .attr("cx", function(d){ return vis.x(d[vis.selectedStat]) })
     .attr("cy", function(d){ return vis.y(d.Wins) });
     circle.exit().remove();
 
-  vis.xAxis.scale(vis.x).tickFormat(function(d){
-    if (vis.selectedStat == "FG%" || vis.selectedStat == "3P%" || vis.selectedStat == "FT%" || vis.selectedStat == "AFG%") {
-      return ((d * 100).toFixed() + "%");
-    }
-    else { return d; }
-  });
-  vis.yAxis.scale(vis.y);
+  vis.xAxis.scale(vis.x)
+    .tickFormat(function(d){
+      if (vis.selectedStat == "FG%" || vis.selectedStat == "3P%" || vis.selectedStat == "FT%" || vis.selectedStat == "AFG%") {
+        return ((d * 100).toFixed() + "%");
+      }
+      else { return d; }
+    })
+    .ticks(8);
+
+  vis.yAxis.scale(vis.y)
+    .ticks(8);
+
+  var t = d3.transition()
+    .duration(500)
+    .ease(d3.easeLinear);
 
   d3.select("#" + vis.parentElement + " .x-axis")
-    .transition(2000)
+    .transition(t)
     .call(vis.xAxis);
 
   d3.select("#" + vis.parentElement + " .y-axis")
-    .transition(2000)
+    .transition(t)
     .call(vis.yAxis);
 
   d3.select("#temp-text").remove();
@@ -231,7 +243,7 @@ ScatterPlotVis.prototype.updateVis = function(){
     $("#scatter-table").css("display", "table")
   }
 
-
+  // Add linear regression line
   function create_data(d) {
     var x = [];
     var y = [];
@@ -300,9 +312,13 @@ ScatterPlotVis.prototype.updateVis = function(){
         .attr("d", newline);
   }
 
+  var t = d3.transition()
+    .duration(100)
+    .ease(d3.easeLinear);
+
   vis.svg.select("path.regression-line")
             .datum(regressionData)
-            .transition()
+            .transition(t)
             .attr("d", newline);
 
   vis.ctr += 1;

@@ -60,10 +60,11 @@ queue()
   .defer(d3.json,"data/data_cleaned.json")
   .defer(d3.json,"data/team_colors.json")
   .defer(d3.csv, "data/14-15-pergame.csv")
+  .defer(d3.csv, "data/14-15-defense-pergame.csv")
   .await(createVis);
 
 // Static Components
-function createVis(error, data, colors, season) {
+function createVis(error, data, colors, season, seasonDefense) {
   // Store 2014-2015 season data
   /*seasonData = {};
   for (var i = 0; i < season.length; i++) {
@@ -78,6 +79,16 @@ function createVis(error, data, colors, season) {
   var keys = Object.keys(season[0]);
   var keyslength = keys.length;
   season.forEach(function(d) {
+    for (var k = 0; k < keyslength; k++) {
+      if (keys[k] != "TEAM") {
+        d[keys[k]] = +d[keys[k]];
+      }
+    }
+  });
+
+  keys = Object.keys(seasonDefense[0]);
+  keyslength = keys.length;
+  seasonDefense.forEach(function(d) {
     for (var k = 0; k < keyslength; k++) {
       if (keys[k] != "TEAM") {
         d[keys[k]] = +d[keys[k]];

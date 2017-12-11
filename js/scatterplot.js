@@ -78,12 +78,19 @@ ScatterPlotVis.prototype.initVis = function(){
     vis.wrangleData();
   });
 
+  // Get ranks for each stat 
+  vis.ranks = {}
+  for (var i = 0; i < vis.keys.length; i++) {
+    var temp = vis.filteredData.slice()
+    vis.ranks[vis.keys[i]] = temp.sort(function(x, y){
+      return x[vis.keys[i]] - y[vis.keys[i]];
+    });
+  };
+
   // Use d3-tip
   vis.tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10,0])
-      .html(function(d) { return d.TEAM ; });
-  vis.svg.call(vis.tip);
 
   // Call next function
   vis.wrangleData();
@@ -96,6 +103,17 @@ ScatterPlotVis.prototype.wrangleData = function(){
   vis.selectedStat = vis.statDropdown.property("value");
 
   vis.displayData = vis.filteredData;
+
+  // Create arrays to rank for wins and selected stat
+  vis.winsSorted = vis.displayData.slice()
+  vis.winsSorted.sort(function(x, y){
+   return x['Wins'] - y['Wins'];
+  });
+
+  vis.selectedStatSorted = vis.displayData.slice()
+  vis.selectedStatSorted.sort(function(x, y){
+   return d3.ascending(x[vis.selectedStat], y[vis.selectedStat]);
+  });
 
   vis.updateVis();
 }
@@ -132,6 +150,7 @@ ScatterPlotVis.prototype.updateVis = function(){
     //     else { return "#141115"; }
     //   })
     // })
+    .on("click", function(d) {showTable(d)})
     .merge(circle)
     .transition(2000)
     .attr("r", 4)
@@ -162,6 +181,56 @@ ScatterPlotVis.prototype.updateVis = function(){
     .attr("text-anchor", "middle")
     .attr("transform", "translate("+ (vis.width / 2) + "," + (vis.height + vis.margin.bottom) + ")")
     .text(vis.selectedStat);
+
+  // Tooltips
+  vis.tip
+    .html(function(d) {
+
+      // Get ranks
+      var winsRank = 30 - (vis.ranks['Wins'].findIndex(function(e) {
+        return e.TEAM == d.TEAM;
+      }))
+      var selectedStatRank = 30 - (vis.ranks[vis.selectedStat].findIndex(function(e) {
+        return e.TEAM == d.TEAM;
+      }))
+
+      // Create tooltip
+      return '<div class="tooltip-team">' + d.TEAM + '</div><div class="tooltip-stat">' + vis.selectedStat + ': ' + d[vis.selectedStat] + ' (Rank: ' + selectedStatRank + ')</div><div class="tooltip=wins">Wins: ' + d['Wins'] + ' (Rank: ' + winsRank + ')</div>';
+    });
+  vis.svg.call(vis.tip);
+
+  // Find rank given team name and statistic
+  function findRank(team, stat){
+    var rank = 30 - (vis.ranks[stat].findIndex(function(e) {
+        return e.TEAM == team;
+    }))
+
+    return rank
+  }
+
+  // Show details for a specific team and Warriors when clicked
+  function showTable(d){
+    $("#table-team").html(d.TEAM);
+    $("#table-record").html(d['Wins'] + ' - ' + (82 - d['Wins']));
+    $("#table-record-rank").html(findRank(d.TEAM, 'Wins'));
+
+    $("#table-selected-stat").html(vis.selectedStat);
+    $("#table-stat").html(d[vis.selectedStat]);
+    $("#table-stat-rank").html(findRank(d.TEAM, vis.selectedStat));
+
+    // Get Golden State's object
+    var goldenStateIndex = vis.filteredData.findIndex(function(e) {
+      return e.TEAM == 'Golden State Warriors'
+    });
+
+    $("#gsw-record").html(vis.displayData[goldenStateIndex]['Wins'] + ' - ' + (82 - vis.displayData[goldenStateIndex]['Wins']));
+    $("#gsw-record-rank").html(findRank('Golden State Warriors', 'Wins'));
+    $("#gsw-stat").html(vis.displayData[goldenStateIndex][vis.selectedStat]);
+    $("#gsw-stat-rank").html(findRank('Golden State Warriors', vis.selectedStat));
+
+    $("#scatter-table").css("display", "table")
+  }
+
 
   function create_data(d) {
     var x = [];

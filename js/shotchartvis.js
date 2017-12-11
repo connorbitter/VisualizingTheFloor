@@ -215,7 +215,7 @@ ShotChartVis = function(_parentElement, _data){
       .data(vis.displayData);
     circle.enter()
       .append("circle")
-      .attr("class", "circle")
+      .attr("class", "shot-circle")
       .merge(circle)
       .transition(2000)
       .attr("r", 4)

@@ -240,15 +240,40 @@
             <p>Explain relationships here. Data from http://www.espn.com/nba/statistics/team/_/stat/offense-per-game/sort/avgFreeThrowsAttempted/year/2015</p>
           </div>
         </div>
-        <form>
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="vis" id="scatter-plot"></div>
+            <form>
               <label>Statistic: </label>
               <select class="form-control" id="stat-dropdown">
-                <option value="PTS" selected="selected">PTS</option>
+              <option value="PTS" selected="selected">PTS</option>
               </select>
             </form>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="vis" id="scatter-plot"></div>
+          </div>
+          <div class="col-lg-7">
+            <table class="table" id="scatter-table">
+              <tr>
+                <th>Stat</th>
+                <th id="table-team"></th>
+                <th>Rank</th>
+                <th>Golden State Warriors</th>
+                <th>Rank</th>
+              </tr>
+              <tr>
+                <td>Record</td>
+                <td id="table-record"></td>
+                <td id="table-record-rank"></td>
+                <td id="gsw-record"></td>
+                <td id="gsw-record-rank"></td>
+              </tr>
+              <tr>
+                <td id="table-selected-stat"></td>
+                <td id="table-stat"></td>
+                <td id="table-stat-rank"></td>
+                <td id="gsw-stat"></td>
+                <td id="gsw-stat-rank"></td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

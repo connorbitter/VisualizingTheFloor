@@ -30,11 +30,6 @@ queue()
 
 // Static Components
 function createVis(error, data, colors, season) {
-	console.log(data);
-
-  // Store data global variables
-  allData = data;
-
   // Store 2014-2015 season data
   /*seasonData = {};
   for (var i = 0; i < season.length; i++) {
@@ -61,6 +56,10 @@ function createVis(error, data, colors, season) {
   for (var key in colors) {
     teamColors[colors[key]['fullName']] = colors[key]
   }
+
+  // Store data global variables
+  allData = data;
+  seasonData = season;
 
   slider_created = false;
   

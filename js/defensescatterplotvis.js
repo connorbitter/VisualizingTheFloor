@@ -66,7 +66,7 @@ DefenseScatterPlotVis.prototype.initVis = function(){
   vis.keys = Object.keys(vis.data[0]);
   var sel = document.getElementById('defense-stat-dropdown');
   for(var i = 0; i < vis.keys.length; i++) {
-    if (vis.keys[i] != "Opp. PPG"  && vis.keys[i] != "TEAM" && vis.keys[i] != "Wins" && vis.keys[i] != "Losses") {
+    if (vis.keys[i] != "Opp. AFG% (Adjusted Field Goal)"  && vis.keys[i] != "TEAM" && vis.keys[i] != "Wins" && vis.keys[i] != "Losses") {
       var opt = document.createElement('option');
       opt.innerHTML = vis.keys[i];
       opt.value = vis.keys[i];
@@ -247,6 +247,16 @@ DefenseScatterPlotVis.prototype.updateVis = function(){
     $("#defense-gsw-record-rank").html(findRank('Golden State Warriors', 'Wins'));
     $("#defense-gsw-stat").html(vis.displayData[goldenStateIndex][vis.selectedStat]);
     $("#defense-gsw-stat-rank").html(findRankReverse('Golden State Warriors', vis.selectedStat));
+
+    $("#def-logo-comparison-other")
+      .attr("src", function() {
+        var team_img = d.TEAM;
+        team_img = team_img.toLowerCase();
+        return ('images/logos/' + team_img + '.png')
+      })
+      .css("display", "inline")
+
+    $("#def-logos-text").html('Vs.').css("display", "inline")
 
     $("#defense-scatter-table").css("display", "table")
   }

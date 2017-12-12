@@ -280,6 +280,55 @@
       </div>
     </section>
 
+    <!--  SCATTER PLOTS  -->
+    <section id="defense-winning-relationships">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>How do different stats relate to winning?</h1>
+            <p>Explain relationships here. Data from http://www.espn.com/nba/statistics/team/_/stat/offense-per-game/sort/avgFreeThrowsAttempted/year/2015</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="vis" id="defense-scatter-plot"></div>
+            <form>
+              <div class="form-group row">
+                <label>Statistic: </label>
+                <select class="form-control form-control-sm" id="defense-stat-dropdown">
+                  <option value="Opp. PPG" selected="selected">Opp. PPG</option>
+                </select>
+              </div>
+          </div>
+          <div class="col-lg-7">
+            <table class="table" id="defense-scatter-table">
+              <tr>
+                <th>Stat</th>
+                <th id="defense-table-team"></th>
+                <th>Rank</th>
+                <th>Golden State Warriors</th>
+                <th>Rank</th>
+              </tr>
+              <tr>
+                <td>Record</td>
+                <td id="defense-table-record"></td>
+                <td id="defense-table-record-rank"></td>
+                <td id="defense-gsw-record"></td>
+                <td id="defense-gsw-record-rank"></td>
+              </tr>
+              <tr>
+                <td id="defense-table-selected-stat"></td>
+                <td id="defense-table-stat"></td>
+                <td id="defense-table-stat-rank"></td>
+                <td id="defense-gsw-stat"></td>
+                <td id="defense-gsw-stat-rank"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
       <div id="authors">Created by Connor Bitter, Brian Ge, and Ryan Plunkett</div>
       <p class="small">Data drawn from <a href="https://www.kaggle.com/dansbecker/nba-shot-logs"> Kaggle</a>, <a href="http://www.espn.com/nba/statistics/team/_/stat/offense-per-game/sort/avgFreeThrowsAttempted/year/2015">ESPN</a>, and the NBA's <a href="http://stats.nba.com/">API</a></p>

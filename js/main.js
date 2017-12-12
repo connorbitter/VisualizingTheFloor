@@ -100,6 +100,14 @@ function createVis(error, data, colors, season, seasonDefense) {
   for (var key in colors) {
     teamColors[colors[key]['fullName']] = colors[key]
   }
+  data.forEach(function(element, index) {
+    if (element.TEAM_NAME == abbrevs[element.HTM]) {
+      element.D_TEAM_NAME = abbrevs[element.VTM];
+    }
+    else {
+      element.D_TEAM_NAME = abbrevs[element.HTM];
+    }
+  });
 
   // Store data global variables
   allData = data;
@@ -123,5 +131,25 @@ function createVis(error, data, colors, season, seasonDefense) {
   var barChartVis = new BarChartVis("bar-chart-percentages", data);
 
   var scatterPlotVis = new ScatterPlotVis("scatter-plot", season);
+  var defenseScatterPlotVis = new DefenseScatterPlotVis("defense-scatter-plot", seasonDefense);
 
+}
+
+function average(arr, groupby, field) {
+  var sums = {}, counts = {}, results = []
+  for (var i = 0; i < arr.length; i++) {
+      var team = arr[i][groupby];
+      if (!(team in sums)) {
+          sums[team] = 0;
+          counts[team] = 0;
+      }
+      sums[team] += arr[i][field];
+      counts[team]++;
+  }
+
+  for(team in sums) {
+      results.push({ key: team, value: sums[team] / counts[team] });
+  }
+  console.log(results);
+  // return [results, Object.keys(sums)];
 }

@@ -22,7 +22,7 @@ ScatterPlotVis.prototype.initVis = function(){
 
   vis.ctr = 0;
 
-  vis.margin = {top: 20, right: 20, bottom: 40, left: 80};
+  vis.margin = {top: 20, right: 20, bottom: 60, left: 80};
 
   vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
   vis.height = 300 - vis.margin.top - vis.margin.bottom;
@@ -78,7 +78,7 @@ ScatterPlotVis.prototype.initVis = function(){
     vis.wrangleData();
   });
 
-  // Get ranks for each stat 
+  // Get ranks for each stat
   vis.ranks = {}
   for (var i = 0; i < vis.keys.length; i++) {
     var temp = vis.filteredData.slice()
@@ -164,7 +164,7 @@ ScatterPlotVis.prototype.updateVis = function(){
 
   vis.xAxis.scale(vis.x)
     .tickFormat(function(d){
-      if (vis.selectedStat == "FG%" || vis.selectedStat == "3P%" || vis.selectedStat == "FT%" || vis.selectedStat == "AFG%") {
+      if (vis.selectedStat == "FG%" || vis.selectedStat == "3P%" || vis.selectedStat == "FT%" || vis.selectedStat == "AFG% (Adjusted Field Goal)") {
         return ((d * 100).toFixed() + "%");
       }
       else { return d; }
@@ -191,7 +191,7 @@ ScatterPlotVis.prototype.updateVis = function(){
   vis.svg.append("text")
     .attr("id", "temp-text")
     .attr("text-anchor", "middle")
-    .attr("transform", "translate("+ (vis.width / 2) + "," + (vis.height + vis.margin.bottom) + ")")
+    .attr("transform", "translate("+ (vis.width / 2) + "," + (vis.height + 40) + ")")
     .text(vis.selectedStat);
 
   // Tooltips

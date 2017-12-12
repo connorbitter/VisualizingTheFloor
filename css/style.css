@@ -92,6 +92,11 @@ footer {
 
 /* Shot Chart */
 
+#shot-chart-selection {
+  text-align: center;
+  padding-top: 4rem;
+}
+
 /* Defender Distance Section */
 
 #def-dist-slider .noUi-connect {

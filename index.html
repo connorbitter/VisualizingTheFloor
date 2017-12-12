@@ -82,32 +82,34 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 id="shot-chart-selection">Loading...</h2>
+          </div>
+          <div class="col-lg-6">
+            <form>
+              <label>Team: </label>
+              <select class="form-control form-control-sm" id="team-dropdown">
+                <option value="Golden State Warriors" selected="selected">Golden State Warriors</option>
+              </select>
+            </form>
+          </div>
+          <div class="col-lg-6">
+            <form>
+              <label>Player: </label>
+              <select class="form-control form-control-sm" id="player-dropdown">
+                <option value="All" selected="selected">All</option>
+              </select>
+            </form>
+          </div>
+        </div>
+
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="vis" id="shot-chart-court"></div>
           </div>
           <div class="col-lg-6">
-            <div class="row">
-              <div class="col-md-12">
-                <form>
-                  <label>Team: </label>
-                  <select class="form-control" id="team-dropdown">
-                    <option value="Golden State Warriors" selected="selected">Golden State Warriors</option>
-                  </select>
-                  <label>Player: </label>
-                  <select class="form-control" id="player-dropdown">
-                    <option value="All" selected="selected">All</option>
-                  </select>
-                </form>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="vis" id="bar-chart-percentages"></div>
-              </div>
-<!--               <div class="col-md-6">
-              </div> -->
-            </div>
+            <div class="vis" id="bar-chart-percentages"></div>
           </div>
         </div>
       </div>

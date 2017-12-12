@@ -166,7 +166,7 @@ footer {
   text-align: center;
 }
 
-#scatter-table {
+#scatter-table, #defense-scatter-table {
   font-size: 0.75rem;
   display: none;
 }

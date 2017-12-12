@@ -280,4 +280,31 @@ BarChartVis.prototype.updateVis = function(){
         return (vis.y(d.value) - 5);
     })
     height.exit().remove();
+
+  var label2 = vis.svg
+  .selectAll("text.label2")
+    .data(vis.pcts);
+    height.enter()
+    .append("text")
+    .attr("class", "label2")
+    .merge(label2)
+    .transition()
+    .text(function(d, i) {
+        if (i % 3 == 1) {
+          return "GSW";
+        }
+        else if (i % 3 == 2) {
+          return "NBA";
+        }
+    })
+    .attr("transform", function(d) {
+      return "translate(" + vis.xGroup(d.group) + ",0)";
+    })
+    .attr("x", function(d) {
+        return (vis.x(d.bar) + 7);
+    })
+    .attr("y", function(d, index) {
+        return (vis.y(d.value) + 15);
+    })
+    label2.exit().remove();
  }

@@ -12,7 +12,7 @@
 	* data_full.json: aggregated data from defender_stats.csv and shot_locations.json
 	* defender_stats.csv: defender data from Kaggle (https://www.kaggle.com/dansbecker/nba-shot-logs)
 	* shot_locations.json: location data from NBA.com API (http://stats.nba.com/)
-	* team_colors.json: colors for every team in the nba
+	* team_colors.json: colors for every team in the nba (https://www.npmjs.com/package/nba-color)
 * images:
 	* logos: team logos for every team in the nba
 	* Other files: images used on site

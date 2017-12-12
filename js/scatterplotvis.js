@@ -66,7 +66,7 @@ ScatterPlotVis.prototype.initVis = function(){
   vis.keys = Object.keys(vis.data[0]);
   var sel = document.getElementById('stat-dropdown');
   for(var i = 0; i < vis.keys.length; i++) {
-    if (vis.keys[i] != "PTS"  && vis.keys[i] != "TEAM" && vis.keys[i] != "Wins" && vis.keys[i] != "Losses") {
+    if (vis.keys[i] != "PPG"  && vis.keys[i] != "TEAM" && vis.keys[i] != "Wins" && vis.keys[i] != "Losses") {
       var opt = document.createElement('option');
       opt.innerHTML = vis.keys[i];
       opt.value = vis.keys[i];
@@ -244,6 +244,7 @@ ScatterPlotVis.prototype.updateVis = function(){
   }
 
   // Add linear regression line
+  // Taken from https://bl.ocks.org/ctufts/298bfe4b11989960eeeecc9394e9f118
   function create_data(d) {
     var x = [];
     var y = [];

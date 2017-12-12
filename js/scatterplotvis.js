@@ -240,6 +240,16 @@ ScatterPlotVis.prototype.updateVis = function(){
     $("#gsw-stat").html(vis.displayData[goldenStateIndex][vis.selectedStat]);
     $("#gsw-stat-rank").html(findRank('Golden State Warriors', vis.selectedStat));
 
+    $("#logo-comparison-other")
+      .attr("src", function() {
+        var team_img = d.TEAM;
+        team_img = team_img.toLowerCase();
+        return ('images/logos/' + team_img + '.png')
+      })
+      .css("display", "inline")
+
+    $("#logos-text").html('Vs.').css("display", "inline")
+
     $("#scatter-table").css("display", "table")
   }
 

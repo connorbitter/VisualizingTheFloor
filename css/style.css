@@ -159,6 +159,23 @@ footer {
   font-size: 0.5rem;
 }
 
+#logos, #def-logos {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.logo-comparison {
+  width: 15%;
+}
+
+#logo-comparison-other, #def-logo-comparison-other {
+  display: none;
+}
+
+#logos-text, #def-logos-text {
+  margin: 0;
+}
+
 .d3-tip {
   line-height: 1;
   padding: 12px;

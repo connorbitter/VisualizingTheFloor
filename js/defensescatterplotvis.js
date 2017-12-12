@@ -248,6 +248,16 @@ DefenseScatterPlotVis.prototype.updateVis = function(){
     $("#defense-gsw-stat").html(vis.displayData[goldenStateIndex][vis.selectedStat]);
     $("#defense-gsw-stat-rank").html(findRankReverse('Golden State Warriors', vis.selectedStat));
 
+    $("#def-logo-comparison-other")
+      .attr("src", function() {
+        var team_img = d.TEAM;
+        team_img = team_img.toLowerCase();
+        return ('images/logos/' + team_img + '.png')
+      })
+      .css("display", "inline")
+
+    $("#def-logos-text").html('Vs.').css("display", "inline")
+
     $("#defense-scatter-table").css("display", "table")
   }
 

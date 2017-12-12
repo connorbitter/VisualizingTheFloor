@@ -33,7 +33,7 @@ ShotChartVis = function(_parentElement, _data){
     .append("g")
     .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")")
     .attr("class", "shotchart-background");
-  
+
   d3.select("#" + vis.parentElement + " g").append("image")
                 .attr("href", "images/Court.png")
                 .attr("width", vis.width)
@@ -60,6 +60,35 @@ ShotChartVis = function(_parentElement, _data){
 
   vis.svg.append("g")
     .attr("class", "axis y-axis");
+
+  // Add legend
+  vis.svg.append("circle")
+    .attr("class", "legend-circle")
+    .attr("cx", 15)
+    .attr("cy", 15)
+    .attr("r", 4)
+    .attr("fill", "blue")
+    .attr("opacity", 0.5);
+
+  vis.svg.append("circle")
+    .attr("class", "legend-circle")
+    .attr("cx", 15)
+    .attr("cy", 35)
+    .attr("r", 4)
+    .attr("fill", "red")
+    .attr("opacity", 0.5);
+
+  vis.svg.append("text")
+    .attr("class", "legend")
+    .attr("x", 25)
+    .attr("y", 20)
+    .text("Made");
+
+  vis.svg.append("text")
+    .attr("class", "legend")
+    .attr("x", 25)
+    .attr("y", 40)
+    .text("Missed");
 
   // Get list of all players that recorded a shot
   var unique = {};
@@ -211,7 +240,7 @@ ShotChartVis = function(_parentElement, _data){
     vis.y.domain(vis.y_extent);
 
     var circle = vis.svg
-      .selectAll("circle")
+      .selectAll(".shot-circle")
       .data(vis.displayData);
     circle.enter()
       .append("circle")

@@ -53,6 +53,29 @@ footer {
 /* Nav */
 .navbar-dark {
   background: #141115;
+  justify-content: space-around;
+  min-height: 10vh;
+}
+
+.nav-item {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.nav-item:hover {
+  border: 0;
+}
+
+.nav-item a {
+  color: #FFC72D;
+}
+
+.nav-item a:hover {
+  color: #003DA5;
+}
+
+.nav-tabs {
+  border-bottom: none;
 }
 
 .regression-line {
@@ -63,7 +86,7 @@ footer {
 
 /* Top */
 #top-container {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

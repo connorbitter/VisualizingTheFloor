@@ -180,12 +180,12 @@ ShotChartVis = function(_parentElement, _data){
     vis.wrangleData();
   });
 
-  // Title
-  vis.title = vis.svg.append("text")
-        .attr("x", (vis.width / 2))
-        .attr("y", 0 - (vis.margin.top / 10))
-        .attr("text-anchor", "middle")
-        .style("font-size", "22px")
+  // // Title
+  // vis.title = vis.svg.append("text")
+  //       .attr("x", (vis.width / 2))
+  //       .attr("y", 0 - (vis.margin.top / 10))
+  //       .attr("text-anchor", "middle")
+  //       .style("font-size", "22px")
 
   // Call next function
   vis.wrangleData();
@@ -221,20 +221,33 @@ ShotChartVis = function(_parentElement, _data){
  ShotChartVis.prototype.updateVis = function(){
     var vis = this;
 
-    vis.title
-      .attr("fill", function() {
+    // vis.title
+    //   .attr("fill", function() {
+    //     selectedTeam = vis.teamDropdown.property("value")
+    //     return teamColors[selectedTeam]["mainColor"]["hex"]
+    //   })
+    //   .text(function() {
+    //     if (vis.playerSelection == 'All') {
+    //       return vis.teamDropdown.property("value")
+    //     }
+    //     else {
+    //       return vis.playerSelection
+    //     }
+    //   });
+
+    $("#shot-chart-selection")
+      .html(function() {
+        if (vis.playerSelection == 'All') {
+            return vis.teamDropdown.property("value")
+          }
+        else {
+            return vis.playerSelection
+        }
+      })
+      .css("color", function() {
         selectedTeam = vis.teamDropdown.property("value")
         return teamColors[selectedTeam]["mainColor"]["hex"]
       })
-      .text(function() {
-        if (vis.playerSelection == 'All') {
-          return vis.teamDropdown.property("value")
-        }
-        else {
-          return vis.playerSelection
-        }
-
-      });
 
     vis.x.domain(vis.x_extent);
     vis.y.domain(vis.y_extent);

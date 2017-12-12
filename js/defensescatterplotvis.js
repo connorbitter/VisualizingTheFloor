@@ -186,10 +186,10 @@ DefenseScatterPlotVis.prototype.updateVis = function(){
     .transition(t)
     .call(vis.yAxis);
 
-  d3.select("#temp-text").remove();
+  d3.select("#defense-temp-text").remove();
 
   vis.svg.append("text")
-    .attr("id", "temp-text")
+    .attr("id", "defense-temp-text")
     .attr("text-anchor", "middle")
     .attr("transform", "translate("+ (vis.width / 2) + "," + (vis.height + 40) + ")")
     .text(vis.selectedStat);

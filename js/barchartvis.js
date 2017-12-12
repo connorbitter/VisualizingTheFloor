@@ -16,7 +16,7 @@ BarChartVis = function(_parentElement, _data){
 BarChartVis.prototype.initVis = function(){
   var vis = this;
 
-  vis.margin = {top: 20, right: 20, bottom: 80, left: 100};
+  vis.margin = {top: 20, right: 20, bottom: 80, left: 80};
 
   vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
   vis.height = 300 - vis.margin.top - vis.margin.bottom;
@@ -36,7 +36,7 @@ BarChartVis.prototype.initVis = function(){
 
 
   vis.x = d3.scaleBand()
-      .domain(["Selected", "League"])
+      .domain(["Selected", "Golden State", "League"])
       .range([0, vis.xGroup.bandwidth()])
       .paddingInner(0.02);
 
@@ -99,42 +99,67 @@ vis.svg.append("text")
 
   // Calculate league averages using entire dataset
   // Calculate player's overall FG%
-  var makes = 0
+  var makes = 0;
+  var gs_makes = 0;
+  var gs_shots = 0;
   vis.data.forEach(function(d){
     makes += d.FGM;
+    if (d.TEAM_NAME == "Golden State Warriors") {
+      gs_makes += d.FGM;
+      gs_shots += 1;
+    }
   })
   if (vis.data.length == 0){
     var fg_pct = 0;
+    var gs_fg_pct = 0;
   }
   else {
     var fg_pct = 100 * (makes / vis.data.length);
+    var gs_fg_pct = 100 * (gs_makes / gs_shots);
   }
 
   // Calculate player's 2-pt FG%
-  var twos = 0
+  var twos = 0;
+  var gs_twos = 0;
+  var gs_twos_shots = 0;
   vis.data_2 = vis.data.filter(function(d){ return d.PTS_TYPE == 2 })
   vis.data_2.forEach(function(d){
     twos += d.FGM;
+    if (d.TEAM_NAME == "Golden State Warriors") {
+      gs_twos += d.FGM;
+      gs_twos_shots += 1;
+    }
   })
   if (vis.data_2.length == 0){
     var two_pct = 0;
+    var gs_two_pct = 0;
   }
   else {
     var two_pct = 100 * (twos / vis.data_2.length);
+    var gs_two_pct = 100 * (gs_twos / gs_twos_shots);
   }
   // Calculate player's 3-pt FG%
-  var threes = 0
+  var threes = 0;
+  var gs_threes = 0;
+  var gs_threes_shots = 0;
   vis.data_3 = vis.data.filter(function(d){ return d.PTS_TYPE == 3 })
   vis.data_3.forEach(function(d){
     threes += d.FGM;
+    if (d.TEAM_NAME == "Golden State Warriors") {
+      gs_threes += d.FGM;
+      gs_threes_shots += 1;
+    }
   })
   if (vis.data_3.length == 0){
     var three_pct = 0;
+    var gs_three_pct = 0;
   }
   else {
     var three_pct = 100 * (threes / vis.data_3.length);
+    var gs_three_pct = 100 * (gs_threes / gs_threes_shots);
   }
   vis.league_pcts = [{group: "All FGA", bar: "League", value: fg_pct}, {group: "2PA", bar:"League", value: two_pct}, {group: "3PA", bar: "League", value: three_pct}];
+  vis.gs_pcts = [{group: "All FGA", bar: "Golden State", value: gs_fg_pct}, {group: "2PA", bar:"Golden State", value: gs_two_pct}, {group: "3PA", bar: "Golden State", value: gs_three_pct}];
 
   // Call next function
   vis.wrangleData();
@@ -198,7 +223,7 @@ BarChartVis.prototype.wrangleData = function(){
   }
   // vis.pcts = [{key: "All FGA", value: fg_pct}, {key: "2PA", value: two_pct}, {key: "3PA", value: three_pct}];
 
-  vis.pcts = [{group: "All FGA", bar:"Selected", value: fg_pct}, vis.league_pcts[0], {group: "2PA", bar: "Selected", value: two_pct}, vis.league_pcts[1], {group: "3PA", bar:"Selected", value: three_pct}, vis.league_pcts[2]];
+  vis.pcts = [{group: "All FGA", bar:"Selected", value: fg_pct}, vis.gs_pcts[0], vis.league_pcts[0], {group: "2PA", bar: "Selected", value: two_pct}, vis.gs_pcts[1], vis.league_pcts[1], {group: "3PA", bar:"Selected", value: three_pct}, vis.gs_pcts[2], vis.league_pcts[2]];
 
   vis.updateVis();
  }
@@ -227,9 +252,12 @@ BarChartVis.prototype.updateVis = function(){
     .attr("height", function(d) { return (vis.height - vis.y(d.value)) })
     .attr("fill", function(d, index) {
       vis.teamDropdown = d3.select("#team-dropdown");
-      if (index % 2 == 0) {
+      if (index % 3 == 0) {
         selectedTeam = vis.teamDropdown.property("value")
         return teamColors[selectedTeam]["mainColor"]["hex"]
+      }
+      else if (index % 3 == 1) {
+        return "#ffc72d"
       }
       else {
         return "#DEC5E3"
@@ -252,7 +280,7 @@ BarChartVis.prototype.updateVis = function(){
       return "translate(" + vis.xGroup(d.group) + ",0)";
     })
     .attr("x", function(d) {
-        return (vis.x(d.bar) + 4);
+        return (vis.x(d.bar) + 3);
     })
     .attr("y", function(d, index) {
         return (vis.y(d.value) - 5);

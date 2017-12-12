@@ -301,10 +301,10 @@ BarChartVis.prototype.updateVis = function(){
       return "translate(" + vis.xGroup(d.group) + ",0)";
     })
     .attr("x", function(d) {
-        return (vis.x(d.bar) + 3);
+        return (vis.x(d.bar) + 7);
     })
     .attr("y", function(d, index) {
-        return (vis.y(d.value) - 25);
+        return (vis.y(d.value) + 15);
     })
     label2.exit().remove();
  }

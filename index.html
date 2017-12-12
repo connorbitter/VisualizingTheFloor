@@ -54,7 +54,7 @@
         <h1>Introduction</h1>
         <div class="row align-items-center">
           <div class="col-lg-7">
-            <p>On October 28, 2014, ESPN released its 2014-2015 preseason NBA predictions, with 28 analysts submitting their pick for the team most likely to bring home the Larry O'Brien trophy in June.  The favorite, earning 50% of the votes?  The Cleveland Cavaliers, led by LeBron James in his first season since returning home.  The Cavs did the reach the Finals but would not prevail, falling in 5 games in the Golden State Warriors.  Despite receiving only a single pre-season vote from ESPN's panel, the Warriors revolutionized the NBA in 2014-2015, capturing the franchise's first championship and laying the groundwork for the most dominant 3-year regular season stretch in NBA history.  After years of toiling in obscurity and languishing in the Bay, these Warriors took the league by storm.  Who were they, and how did they do it?</p>
+            <p>On October 28, 2014, ESPN released its 2014-15 preseason NBA predictions, with 28 analysts submitting their pick for the team most likely to bring home the Larry O'Brien trophy in June.  The favorite, earning 50% of the votes?  The Cleveland Cavaliers, led by LeBron James in his first season since returning home.  The Cavs did the reach the Finals but would not prevail, falling in 6 games to the Golden State Warriors.  Despite receiving only a single pre-season vote from ESPN's panel, the Warriors revolutionized the NBA in 2014-15, capturing the franchise's first championship and laying the groundwork for the most dominant 3-year regular season stretch in NBA history.  After years of toiling in obscurity and languishing in the Bay, these Warriors took the league by storm.  Who were they, and how did they do it?</p>
           </div>
           <div class="col-lg-5">
             <div class="text-center my-md-4" id="writer-vis">
@@ -85,8 +85,9 @@
         <div class="row">
           <div class="col-md-12">
             <h1>Interactive Shot Chart</h1>
-            <p>While the 2014-2015 Warriors will be remembered for a variety of reasons, they are perhaps best known for deadly shooting acumen.  Dubbed the "Splash Brothers" because of their prowess from deep, Golden State's starting backcourt of Stephen Curry and Klay Thompson combined to knock down 525 3-pointers over the course of the season, smashing their own record of 484 from the year before.  In the coming years, this 3-point barrage would sweep across the league, as teams and players became smarter with their shot selection, stepping behind the arc and trading in efficient long 2-point shots for more valuable 3s.</p>
-            <p>Using a combination the NBA's API and Kaggle datasets, we were able to determine the location from which over 110,000 shots were taken during the 2014-2015 season.  This information, grouped by team and player, can be found below, and although representing incomplete data, it does show the beginning of shot stratification across the league, as a high concentration of attempts come either at the rim or from 3.</p>
+            <p>While the 2014-15 Warriors will be remembered for a variety of reasons, they are perhaps best known for their deadly shooting acumen.  Dubbed the "Splash Brothers" because of their prowess from deep, Golden State's starting backcourt of Stephen Curry and Klay Thompson combined to knock down 525 3-pointers over the course of the season, smashing their own record of 484 from the year before.  In the coming years, this 3-point barrage would sweep across the league, as teams and players became smarter with their shot selection, stepping behind the arc and trading inefficient long 2-point shots for more valuable 3s.</p>
+
+            <p>Using a combination the NBA's API and Kaggle datasets, we were able to determine the location from which over 110,000 shots were taken during the 2014-15 season.  This information, grouped by team and player, can be found below, and although representing incomplete data, it does show the beginning of shot stratification across the league, as a high concentration of attempts come either at the rim or from 3.</p>
           </div>
         </div>
 
@@ -184,7 +185,7 @@
         <div class="row">
           <div class="col-md-12">
 
-            <p>On 3-point shots, we do see a small bump in shooting percentage if the player has held the ball for only about a second.  This does seem to align with conventional wisdom; the fastest releases in the NBA have been tracked at about 0.75 seconds, so we suspect that this improvement may in fact represent catch-and-shoot opportunities.  However, this shot is rather small, and we can't draw any definitive conclusions.  For 2-point field goals, our results are muddled and show very high variance.  The incredibly high FG% after very short touches almost certainly represents put-back opportunities, meaning that an offensive player collects a rebound at the rim and immediately tips it in.  Although these are converted at an exceptioinally high rate, they don't represent the true catch-and-shoot chances that we hoped to investigate.</p>
+            <p>On 3-point shots, we do see a small bump in shooting percentage if the player has held the ball for only about a second.  This does seem to align with conventional wisdom; the fastest releases in the NBA have been tracked at about 0.75 seconds, so we suspect that this improvement may in fact represent catch-and-shoot opportunities.  However, this shot is rather small, and we can't draw any definitive conclusions.  For 2-point field goals, our results are muddled and show very high variance.  The incredibly high FG% after very short touches almost certainly represents put-back opportunities, meaning that an offensive player collects a rebound at the rim and immediately tips it in.  Although these are converted at an exceptionally high rate, they don't represent the true catch-and-shoot chances that we hoped to investigate.</p>
 
           </div>
         </div>
@@ -223,24 +224,6 @@
         </div>
       </div>
     </section>
-
-    <!--  TEAM AVG DEFENDER DISTANCE VS WINNING PERCENTAGE  -->
-<!--     <section id="win-percentage">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1>Defender Distance and Winning</h1>
-
-            <p>We suspect that better teams create more open shots, and that this effect will be observable in the average closest defender distance at the time of their field goal attempts.  We haven't had time to label this visualization or really investigate it yet, but we hope that the shorter bars will represent better teams, supporting our hypothesis.</p>
-          </div>
-        </div>
-        <div class="row">
-              <div class="col-lg-6">
-                <div class="vis" id="open-shot"></div>
-              </div>
-        </div>
-      </div>
-    </section> -->
 
     <!--  SCATTER PLOTS  -->
     <section id="offense-winning">
@@ -299,7 +282,7 @@
         <div class="row">
           <div class="col-md-12">
             <h1>How does defense relate to winning?</h1>
-            <p>While they are remembered mainly for their offensive firepower, the 2014-15 Warriors were also a suffocating defensive unit.  While posting only mediocre results when considering opponent PPG, they led the league in opponent FG%, indicating that their defensive pressure may have been actually been great, but their opponents were able to score at such a high volume because of the lightning-quick pace at which the Warriors' offense operated.  By defending the 3-point line and daring their opponents' to match their efficiency, forcing them into poor shot selection and suffocating them in the process.</p>
+            <p>While they are remembered mainly for their offensive firepower, the 2014-15 Warriors were also a suffocating defensive unit.  While posting only mediocre results when considering opponent PPG, they led the league in opponent FG%, indicating that their defensive pressure may have been actually been great, but their opponents were able to score at such a high volume because of the lightning-quick pace at which the Warriors' offense operated.  By defending the 3-point line and daring their opponents' to match their efficiency, the Warriors forced teams into poor shot selection and suffocated them in the process.</p>
           </div>
         </div>
         <div class="row align-items-center">

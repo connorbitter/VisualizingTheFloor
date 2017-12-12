@@ -16,7 +16,7 @@ BarChartVis = function(_parentElement, _data){
 BarChartVis.prototype.initVis = function(){
   var vis = this;
 
-  vis.margin = {top: 20, right: 20, bottom: 80, left: 80};
+  vis.margin = {top: 20, right: 20, bottom: 20, left: 40};
 
   vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
   vis.height = 300 - vis.margin.top - vis.margin.bottom;
@@ -59,12 +59,6 @@ BarChartVis.prototype.initVis = function(){
   vis.svg.append("g")
     .attr("class", "axis y-axis");
 
-// Label Axes
-vis.svg.append("text")
-  .attr("text-anchor", "middle")
-  .attr("transform", "translate("+ (-vis.margin.left / 2) + "," + (vis.height / 2) + ")rotate(-90)")
-  .text("FG%");
-
   // Add Axes
   vis.xAxis.scale(vis.xGroup);
   vis.yAxis.scale(vis.y).tickFormat(function(d){return d + "%"});
@@ -85,7 +79,7 @@ vis.svg.append("text")
         .attr("y", 0 - (vis.margin.top / 10))
         .attr("text-anchor", "middle")
         .style("font-size", "22px")
-        .text("Selected FG%");
+        .text("Field Goal %");
 
   vis.dropdown = d3.select("#player-dropdown");
   $("#player-dropdown").change(function() {
@@ -257,7 +251,7 @@ BarChartVis.prototype.updateVis = function(){
         return teamColors[selectedTeam]["mainColor"]["hex"]
       }
       else if (index % 3 == 1) {
-        return "#ffc72d"
+        return "#003DA5"
       }
       else {
         return "#DEC5E3"

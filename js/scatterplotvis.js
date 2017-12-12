@@ -244,6 +244,7 @@ ScatterPlotVis.prototype.updateVis = function(){
   }
 
   // Add linear regression line
+  // Taken from https://bl.ocks.org/ctufts/298bfe4b11989960eeeecc9394e9f118
   function create_data(d) {
     var x = [];
     var y = [];

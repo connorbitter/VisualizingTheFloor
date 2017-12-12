@@ -1,4 +1,4 @@
-TEAM,PTS,FGM (per Game),FGA (per Game),FG%,3PM (per Game),3PA (per Game),3P%,FTM (per Game),FTA (per Game),FT%,PPS (Points per Shot),AFG% (Adjusted Field Goal),Wins,Losses,Defender Distance,Touch Time,Shot Clock
+TEAM,PPG,FGM (per Game),FGA (per Game),FG%,3PM (per Game),3PA (per Game),3P%,FTM (per Game),FTA (per Game),FT%,PPS (Points per Shot),AFG% (Adjusted Field Goal),Wins,Losses,Defender Distance,Touch Time,Shot Clock
 Atlanta Hawks,102.5,38.1,81.7,0.466,10,26.2,0.38,16.5,21.2,0.778,1.26,0.527,60,22,4.62,2.68,11.52
 Boston Celtics,101.4,38.9,87.9,0.443,8,24.6,0.327,15.4,20.5,0.754,1.15,0.489,40,42,4.06,2.3,12.7
 Brooklyn Nets,98,37.4,83,0.451,6.6,19.9,0.331,16.6,22.2,0.748,1.18,0.491,38,44,4.08,3.12,11.41

@@ -109,6 +109,10 @@ footer {
 
 /* Defender Distance Section */
 
+#slider-caption {
+  padding-bottom: 2rem;
+}
+
 #def-dist-slider .noUi-connect {
   background: #003DA5;
 }

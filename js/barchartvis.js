@@ -16,10 +16,10 @@ BarChartVis = function(_parentElement, _data){
 BarChartVis.prototype.initVis = function(){
   var vis = this;
 
-  vis.margin = {top: 20, right: 20, bottom: 20, left: 40};
+  vis.margin = {top: 20, right: 10, bottom: 20, left: 10};
 
   vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-  vis.height = 300 - vis.margin.top - vis.margin.bottom;
+  vis.height = 350 - vis.margin.top - vis.margin.bottom;
 
   // SVG drawing area
   vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -49,15 +49,15 @@ BarChartVis.prototype.initVis = function(){
 
   // Set domains
   // vis.x.domain(["All FGA", "League Avg FGA", "2PA", "League Avg 2PA", "3PA", "League Avg 3PA"]);
-  vis.y.domain([0, 100]);
+  vis.y.domain([0, 70]);
 
   // Draw Axes
   vis.svg.append("g")
     .attr("class", "axis x-axis")
     .attr("transform", "translate(0," + vis.height + ")");
 
-  vis.svg.append("g")
-    .attr("class", "axis y-axis");
+  // vis.svg.append("g")
+  //   .attr("class", "axis y-axis");
 
   // Add Axes
   vis.xAxis.scale(vis.xGroup);

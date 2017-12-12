@@ -207,7 +207,7 @@ DefenseScatterPlotVis.prototype.updateVis = function(){
       }))
 
       // Create tooltip
-      return '<div class="tooltip-team">' + d.TEAM + '</div><div class="tooltip-stat">' + vis.selectedStat + ': ' + d[vis.selectedStat] + ' (Rank: ' + selectedStatRank + ')</div><div class="tooltip=wins">Wins: ' + d['Wins'] + ' (Rank: ' + winsRank + ')</div>';
+      return '<div class="tooltip-team">' + d.TEAM + '</div><table class="table table-sm tooltip-table"><tr><td class="tooltip-stat">' + vis.selectedStat + '</td><td>' + d[vis.selectedStat] + '</td><td>Rank</td><td>' + selectedStatRank + '</td></tr><tr><td>Wins</td><td>' + d['Wins'] + '</td><td>Rank</td><td>' + winsRank + '</td></tr>';
     });
   vis.svg.call(vis.tip);
 

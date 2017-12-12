@@ -217,7 +217,7 @@
     </section>
 
     <!--  TEAM AVG DEFENDER DISTANCE VS WINNING PERCENTAGE  -->
-    <section id="win-percentage">
+<!--     <section id="win-percentage">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -232,7 +232,7 @@
               </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!--  SCATTER PLOTS  -->
     <section id="winning-relationships">
@@ -243,18 +243,16 @@
             <p>As expected, given their standing as one of the greatest teams of all time, the 2014-15 Golden State Warriors led or ranked among the league leaders in nearly every offensive category.  Demonstrated by the scatter plot below, a number of these categories correlate very favorably with winning, and unsurprisingly, the Warriors rode their offensive prowess to a league-best 67 wins and home-court advantage throughout the NBA playoffs.</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+              <label>Statistic: </label>
+              <select class="form-control form-control-sm" id="stat-dropdown">
+                <option value="PPG" selected="selected">PPG</option>
+              </select>
             <div class="vis" id="scatter-plot"></div>
-            <form>
-              <div class="form-group row">
-                <label>Statistic: </label>
-                <select class="form-control form-control-sm" id="stat-dropdown">
-                  <option value="PPG" selected="selected">PPG</option>
-                </select>
-              </div>
+            <p class="small">Click on a point in the scatter plot to see that team's stats versus the Warriors.</p>
           </div>
-          <div class="col-lg-7">
+          <div class="col-lg-6">
             <table class="table" id="scatter-table">
               <tr>
                 <th>Stat</th>
@@ -292,18 +290,16 @@
             <p>While they are remembered mainly for their offensive firepower, the 2014-15 Warriors were also a suffocating defensive unit.  While posting only mediocre results when considering opponent PPG, they led the league in opponent FG%, indicating that their defensive pressure may have been actually been great, but their opponents were able to score at such a high volume because of the lightning-quick pace at which the Warriors' offense operated.  By defending the 3-point line and daring their opponents' to match their efficiency, forcing them into poor shot selection and suffocating them in the process.</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <label>Statistic: </label>
+            <select class="form-control form-control-sm" id="defense-stat-dropdown">
+              <option value="Opp. PPG" selected="selected">Opp. PPG</option>
+            </select>
             <div class="vis" id="defense-scatter-plot"></div>
-            <form>
-              <div class="form-group row">
-                <label>Statistic: </label>
-                <select class="form-control form-control-sm" id="defense-stat-dropdown">
-                  <option value="Opp. PPG" selected="selected">Opp. PPG</option>
-                </select>
-              </div>
+            <p class="small">Click on a point in the scatter plot to see that team's stats versus the Warriors.</p>
           </div>
-          <div class="col-lg-7">
+          <div class="col-lg-6">
             <table class="table" id="defense-scatter-table">
               <tr>
                 <th>Stat</th>

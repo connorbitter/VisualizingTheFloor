@@ -228,7 +228,9 @@ ShotChartVis = function(_parentElement, _data){
         return teamColors[selectedTeam]["mainColor"]["hex"]
       })
 
-    $("#selected-logo").attr("src", 'images/logos/' + vis.teamDropdown.property("value").toLowerCase() + '.png')
+    $("#selected-logo")
+      .attr("src", 'images/logos/' + vis.teamDropdown.property("value").toLowerCase() + '.png')
+      .css("display", "inline")
 
     vis.x.domain(vis.x_extent);
     vis.y.domain(vis.y_extent);

@@ -100,6 +100,8 @@ function createVis(error, data, colors, season, seasonDefense) {
   for (var key in colors) {
     teamColors[colors[key]['fullName']] = colors[key]
   }
+
+  // Add defending team name to data
   data.forEach(function(element, index) {
     if (element.TEAM_NAME == abbrevs[element.HTM]) {
       element.D_TEAM_NAME = abbrevs[element.VTM];

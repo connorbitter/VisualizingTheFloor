@@ -66,7 +66,7 @@ DefenseScatterPlotVis.prototype.initVis = function(){
   vis.keys = Object.keys(vis.data[0]);
   var sel = document.getElementById('defense-stat-dropdown');
   for(var i = 0; i < vis.keys.length; i++) {
-    if (vis.keys[i] != "Opp. PPG"  && vis.keys[i] != "TEAM" && vis.keys[i] != "Wins" && vis.keys[i] != "Losses") {
+    if (vis.keys[i] != "Opp. AFG% (Adjusted Field Goal)"  && vis.keys[i] != "TEAM" && vis.keys[i] != "Wins" && vis.keys[i] != "Losses") {
       var opt = document.createElement('option');
       opt.innerHTML = vis.keys[i];
       opt.value = vis.keys[i];

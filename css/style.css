@@ -172,7 +172,8 @@ footer {
 }
 
 .heights {
-  font-size: 0.75rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.01rem;
 }
 
 /* Footer */

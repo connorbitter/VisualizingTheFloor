@@ -21,7 +21,7 @@ ShotChartVis = function(_parentElement, _data){
  ShotChartVis.prototype.initVis = function(){
   var vis = this;
 
-  vis.margin = {top: 30, right: 10, bottom: 10, left: 10};
+  vis.margin = {top: 10, right: 10, bottom: 10, left: 10};
 
   vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
   vis.height = (vis.width * 0.94);
@@ -180,13 +180,6 @@ ShotChartVis = function(_parentElement, _data){
     vis.wrangleData();
   });
 
-  // // Title
-  // vis.title = vis.svg.append("text")
-  //       .attr("x", (vis.width / 2))
-  //       .attr("y", 0 - (vis.margin.top / 10))
-  //       .attr("text-anchor", "middle")
-  //       .style("font-size", "22px")
-
   // Call next function
   vis.wrangleData();
 
@@ -221,20 +214,6 @@ ShotChartVis = function(_parentElement, _data){
  ShotChartVis.prototype.updateVis = function(){
     var vis = this;
 
-    // vis.title
-    //   .attr("fill", function() {
-    //     selectedTeam = vis.teamDropdown.property("value")
-    //     return teamColors[selectedTeam]["mainColor"]["hex"]
-    //   })
-    //   .text(function() {
-    //     if (vis.playerSelection == 'All') {
-    //       return vis.teamDropdown.property("value")
-    //     }
-    //     else {
-    //       return vis.playerSelection
-    //     }
-    //   });
-
     $("#shot-chart-selection")
       .html(function() {
         if (vis.playerSelection == 'All') {
@@ -248,6 +227,8 @@ ShotChartVis = function(_parentElement, _data){
         selectedTeam = vis.teamDropdown.property("value")
         return teamColors[selectedTeam]["mainColor"]["hex"]
       })
+
+    $("#selected-logo").attr("src", 'images/logos/' + vis.teamDropdown.property("value").toLowerCase() + '.png')
 
     vis.x.domain(vis.x_extent);
     vis.y.domain(vis.y_extent);

@@ -113,6 +113,16 @@ footer {
   text-align: center;
 }
 
+/* Bottom */
+#bottom-photo {
+  height: 90vh;
+
+  /* http://images.performgroup.com/di/library/sporting_news/51/79/warriors-finals-getty-ftr-061615_1ckoo4lhtmtk613ok7lhqyatlb.jpg?t=-7589547 */  
+  background-image: url('../images/gsw-2.jpg');
+  background-size: cover;
+  background-position: top center;
+}
+
 /* Shot Chart */
 
 #shot-chart-selection {
